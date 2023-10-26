@@ -7,8 +7,12 @@ const LsiProvider = ({ children }) => {
   );
   useEffect(() => {
     if (!language) {
-      setLanguage("en");
-      localStorage.setItem("user_pref_language", "en");
+      const lang = navigator.language.split("-")[0];
+      setLanguage(["en", "cs"].includes(lang) ? lang : "en");
+      localStorage.setItem(
+        "user_pref_language",
+        ["en", "cs"].includes(lang) ? lang : "en"
+      );
     }
   }, [language]);
 
