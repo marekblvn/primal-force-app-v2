@@ -2,7 +2,7 @@ import { useContext } from "react";
 import ChampionImageContext from "./champion-image/champion-image-context";
 import LsiContext from "./lsi/lsi-context";
 
-export const useChampionImage = () => {
+export const useChampionImages = () => {
   const championImageContext = useContext(ChampionImageContext);
   return championImageContext;
 };
