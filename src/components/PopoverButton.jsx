@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Grow, IconButton, Popover, Stack, useMediaQuery } from "@mui/material";
+import { Grow, IconButton, Popover, Stack } from "@mui/material";
 import { useState } from "react";
 
 const PopoverButton = ({ icon, children }) => {
