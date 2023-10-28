@@ -27,4 +27,4 @@ const LsiProvider = ({ children }) => {
   );
 };
 
-export default { LsiProvider, LsiContext };
+export { LsiProvider, LsiContext };

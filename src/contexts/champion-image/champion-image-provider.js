@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ChampionImageContext from "./champion-image-context";
 import champions from "../../static/data/champions.json";
-import { baseCdnUrl, lolPatch } from "../../static/data/config.json";
+import config from "../../static/data/config.json";
 
 const ChampionImageProvider = ({ children }) => {
   const [championImages, setChampionImages] = useState([]);
@@ -13,7 +13,10 @@ const ChampionImageProvider = ({ children }) => {
             new Promise((resolve) => {
               const img = new Image();
               img.src =
-                baseCdnUrl + lolPatch + "/img/champion/" + champion.asset;
+                config.baseCdnUrl +
+                config.lolPatch +
+                "/img/champion/" +
+                champion.asset;
               img.onload = () => resolve(img);
             })
         )
@@ -32,4 +35,4 @@ const ChampionImageProvider = ({ children }) => {
     </ChampionImageContext.Provider>
   );
 };
-export default { ChampionImageProvider, ChampionImageContext };
+export { ChampionImageProvider, ChampionImageContext };
