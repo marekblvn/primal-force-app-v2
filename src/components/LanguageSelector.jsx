@@ -24,7 +24,7 @@ const LanguageSelector = () => {
             }}
           />
         }
-        placement="bottom"
+        placement="left"
         arrow
         enterDelay={500}
       >
