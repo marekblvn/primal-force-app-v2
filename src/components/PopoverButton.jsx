@@ -14,7 +14,9 @@ const PopoverButton = ({ icon, children }) => {
       <IconButton
         onClick={handleOpenPopover}
         sx={{
-          color: theme.palette.white.main,
+          color: popoverOpen
+            ? theme.palette.secondary.light
+            : theme.palette.white.main,
           "&:hover": { backgroundColor: theme.palette.primary.dark },
         }}
       >
