@@ -1,10 +1,9 @@
 import { useTheme } from "@emotion/react";
-import { IconButton, Popover, Stack, useMediaQuery } from "@mui/material";
+import { Grow, IconButton, Popover, Stack, useMediaQuery } from "@mui/material";
 import { useState } from "react";
 
 const PopoverButton = ({ icon, children }) => {
   const theme = useTheme();
-  const shouldBeCollapsed = useMediaQuery(theme.breakpoints.down("md"));
   const [anchor, setAnchor] = useState(null);
   const popoverOpen = Boolean(anchor);
   const handleOpenPopover = (e) => setAnchor(e.currentTarget);
@@ -12,21 +11,36 @@ const PopoverButton = ({ icon, children }) => {
 
   return (
     <>
-      <IconButton onClick={handleOpenPopover}>{icon}</IconButton>
+      <IconButton
+        onClick={handleOpenPopover}
+        sx={{
+          color: theme.palette.white.main,
+          "&:hover": { backgroundColor: theme.palette.primary.dark },
+        }}
+      >
+        {icon}
+      </IconButton>
       <Popover
         open={popoverOpen}
         onClose={handleClosePopover}
         anchorEl={anchor}
         anchorOrigin={{
-          vertical: shouldBeCollapsed ? "bottom" : "bottom",
-          horizontal: shouldBeCollapsed ? "center" : "right",
+          vertical: "bottom",
+          horizontal: "center",
         }}
         transformOrigin={{
-          vertical: shouldBeCollapsed ? "top" : "top",
-          horizontal: shouldBeCollapsed ? "center" : "right",
+          vertical: "top",
+          horizontal: "center",
         }}
+        TransitionComponent={Grow}
       >
-        <Stack direction={shouldBeCollapsed ? "column" : "row"}>
+        <Stack
+          direction="column"
+          spacing="8px"
+          justifyContent="space-between"
+          alignItems="center"
+          padding="6px"
+        >
           {children}
         </Stack>
       </Popover>

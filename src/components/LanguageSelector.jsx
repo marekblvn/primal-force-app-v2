@@ -22,10 +22,7 @@ const LanguageSelector = () => {
     language === "en" ? handleChangeLanguage("cs") : handleChangeLanguage("en");
   };
   return (
-    <IconButton
-      onClick={toggleLanguage}
-      src={{ width: collapsed ? "32px" : "48px" }}
-    >
+    <IconButton onClick={toggleLanguage}>
       <Tooltip
         title={
           <Lsi
@@ -43,8 +40,8 @@ const LanguageSelector = () => {
           component="img"
           alt={language}
           src={languageMap[language]}
-          height={collapsed ? "24px" : "32px"}
-          width={collapsed ? "24px" : "32px"}
+          height={"24px"}
+          width={"24px"}
         />
       </Tooltip>
     </IconButton>
