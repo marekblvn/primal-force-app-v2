@@ -1,10 +1,4 @@
-import {
-  IconButton,
-  Tooltip,
-  useMediaQuery,
-  useTheme,
-  Box,
-} from "@mui/material";
+import { IconButton, Tooltip, Box } from "@mui/material";
 import UK_Flag from "../static/img/united-kingdom-flag-icon.svg";
 import CZ_Flag from "../static/img/czech-republic-flag-icon.svg";
 import { useLsi } from "../contexts";
@@ -16,8 +10,6 @@ const languageMap = {
 };
 const LanguageSelector = () => {
   const { language, handleChangeLanguage } = useLsi();
-  const theme = useTheme();
-  const collapsed = useMediaQuery(theme.breakpoints.down("md"));
   const toggleLanguage = () => {
     language === "en" ? handleChangeLanguage("cs") : handleChangeLanguage("en");
   };
