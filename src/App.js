@@ -16,6 +16,8 @@ function App() {
         minHeight: "100vh",
         padding: 0,
         margin: 0,
+        borderRadius: 0,
+        borderWidth: 0,
       }}
     >
       {isAuthenticated ? <RouterProvider router={Router} /> : <Login />}
