@@ -1,0 +1,26 @@
+.loader {
+    animation: pulse 1s linear infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+    25% {
+      -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+    50% {
+       -webkit-transform: scale(0.9);
+       transform: scale(0.9);
+    }
+    75% {
+      -webkit-transform: scale(1);
+       transform: scale(1);
+    }
+    100% {
+        -webkit-transform: scale(1.1);
+       transform: scale(1.1);
+    }
+  }
