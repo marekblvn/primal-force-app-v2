@@ -1,29 +1,56 @@
 import { useTheme } from "@emotion/react";
-import { Box } from "@mui/material";
+import { Box, Stack, Typography, useMediaQuery } from "@mui/material";
 import { NavLink } from "react-router-dom";
 
 const Logo = () => {
   const theme = useTheme();
+  const nameShown = useMediaQuery(theme.breakpoints.up("md"));
   return (
-    <NavLink to="/">
-      <Box
-        component="img"
-        sx={{
-          [theme.breakpoints.down("sm")]: {
-            width: "48px",
-            height: "48px",
-          },
-          [theme.breakpoints.up("sm")]: {
-            width: "56px",
-            height: "56px",
-          },
+    <Stack
+      direction="row"
+      justifyContent="center"
+      alignItems="center"
+      spacing="16px"
+    >
+      <NavLink
+        to="/"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
-        alt="Primal Force"
-        src={
-          "https://ucarecdn.com/f475973e-0622-4ff6-a092-3582128a4ec4/-/preview/500x500/-/quality/smart_retina/-/format/auto/"
-        }
-      />
-    </NavLink>
+      >
+        <Box
+          component="img"
+          sx={{
+            [theme.breakpoints.down("sm")]: {
+              width: "48px",
+              height: "48px",
+            },
+            [theme.breakpoints.up("sm")]: {
+              width: "64px",
+              height: "64px",
+            },
+          }}
+          alt="Primal Force"
+          src={
+            "https://ucarecdn.com/f475973e-0622-4ff6-a092-3582128a4ec4/-/preview/500x500/-/quality/smart_retina/-/format/auto/"
+          }
+        />
+      </NavLink>
+      {nameShown && (
+        <Typography
+          sx={{
+            fontFamily: "K2D, sans-serif",
+            fontSize: { xs: "28px", sm: "40px" },
+            textAlign: "center",
+            verticalAlign: "middle",
+          }}
+        >
+          Primal Force
+        </Typography>
+      )}
+    </Stack>
   );
 };
 
