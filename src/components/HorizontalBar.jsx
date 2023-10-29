@@ -3,7 +3,7 @@ import Logo from "./Logo";
 import { useTheme } from "@emotion/react";
 import Menu from "./Menu";
 
-const HorizontalBar = () => {
+const HorizontalBar = ({ championQuery, onChampionQueryChange }) => {
   const theme = useTheme();
   return (
     <AppBar
