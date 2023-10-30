@@ -2,7 +2,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useEffect, useState } from "react";
 import TokenContext from "./token-context";
 
-const TokenProvider = ({ children }) => {
+const TokenProvider = ({ children, audience, scope }) => {
   const { getAccessTokenSilently } = useAuth0();
   const [token, setToken] = useState("");
   useEffect(() => {
@@ -10,11 +10,12 @@ const TokenProvider = ({ children }) => {
       try {
         const authToken = await getAccessTokenSilently({
           authorizationParams: {
-            audience: process.env.REACT_APP_AUTH0_API,
-            scope: "read:match create:match delete:match",
+            audience: audience,
+            scope: scope,
           },
         });
         setToken(authToken);
+        console.log(authToken);
       } catch (error) {
         console.log(error);
       }
