@@ -1,6 +1,6 @@
 import Loading from "./Loading/Loading";
 import MatchList from "./MatchList";
-import matchListData from "../mock/match/list.json";
+import Error from "./Error";
 const MatchListProvider = ({
   data,
   error,
@@ -10,12 +10,12 @@ const MatchListProvider = ({
   onDeleteMatchClick,
 }) => {
   if (loading) return <Loading />;
-  if (error) return <p>error</p>;
+  if (error) return <Error error={error} />;
   if (data)
     return (
       <MatchList
-        itemList={matchListData.itemList}
-        pageInfo={matchListData.pageInfo}
+        itemList={data.itemList}
+        pageInfo={data.pageInfo}
         onPageIndexChange={() => {}}
         pageIndex={0}
         onMatchDeleteClick={() => {}}

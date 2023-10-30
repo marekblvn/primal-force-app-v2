@@ -1,6 +1,7 @@
 import { useState } from "react";
 import HorizontalBar from "../components/HorizontalBar";
 import MatchListProvider from "../components/MatchListProvider";
+import matchListData from "../mock/match/list.json";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -18,7 +19,7 @@ const Home = () => {
         onChampionFilterChange={handleChangeChampionFilter}
         onChampionFilterClear={handleClearChampionFilter}
       />
-      <MatchListProvider data={true} />
+      <MatchListProvider data={matchListData} />
     </div>
   );
 };
