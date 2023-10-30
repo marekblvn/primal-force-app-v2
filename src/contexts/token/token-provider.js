@@ -15,12 +15,11 @@ const TokenProvider = ({ children, audience, scope }) => {
           },
         });
         setToken(authToken);
-        console.log(authToken);
       } catch (error) {
         console.log(error);
       }
     })();
-  }, [getAccessTokenSilently]);
+  }, [getAccessTokenSilently, audience, scope]);
   return (
     <TokenContext.Provider value={token}>{children}</TokenContext.Provider>
   );
