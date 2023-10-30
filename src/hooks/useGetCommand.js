@@ -2,7 +2,11 @@ import { useToken } from "../contexts";
 
 const { useState, useEffect } = require("react");
 
-const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
+const useGetCommand = ({
+  command,
+  skip: skipInitial = false,
+  initialParams = {},
+}) => {
   const [data, setData] = useState(undefined);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -10,7 +14,7 @@ const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
 
   useEffect(() => {
     if (error) return;
-    if (!skip) {
+    if (!skipInitial) {
       get(initialParams);
     }
   }, []);
