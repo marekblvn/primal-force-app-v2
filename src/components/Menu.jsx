@@ -1,5 +1,5 @@
 // components
-import { Stack } from "@mui/material";
+import { Divider, Stack, useTheme } from "@mui/material";
 import PopoverButton from "./PopoverButton";
 import LanguageSelector from "./LanguageSelector";
 import Lsi from "./Lsi";
@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 const Menu = () => {
   const { logout } = useAuth0();
   const navigate = useNavigate();
+  const theme = useTheme();
   return (
     <Stack
       direction="row"
@@ -46,6 +47,9 @@ const Menu = () => {
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
+        />
+        <Divider
+          sx={{ background: theme.palette.secondary.light, width: "105%" }}
         />
         <TooltipedButton
           icon={
@@ -88,6 +92,9 @@ const Menu = () => {
             />
           }
           onClick={() => navigate("/about")}
+        />
+        <Divider
+          sx={{ background: theme.palette.secondary.light, width: "105%" }}
         />
         <LanguageSelector />
       </PopoverButton>
