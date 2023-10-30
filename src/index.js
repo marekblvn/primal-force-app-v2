@@ -20,12 +20,12 @@ root.render(
           clientId={process.env.REACT_APP_AUTH0_CLIENT_ID}
           authorizationParams={{
             redirect_uri: window.location.origin,
-            audience: process.env.REACT_APP_AUTH0_API,
+            audience: process.env.REACT_APP_PMF_API_URL,
             scope: "openid profile email read:match delete:match create:match",
           }}
         >
           <TokenProvider
-            audience={process.env.REACT_APP_AUTH0_API}
+            audience={process.env.REACT_APP_PMF_API_URL}
             scope="read:match delete:match create:match"
           >
             <App />
