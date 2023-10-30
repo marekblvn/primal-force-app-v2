@@ -41,7 +41,7 @@ const PopoverButton = ({ icon, children }) => {
           spacing="8px"
           justifyContent="space-between"
           alignItems="center"
-          padding="6px"
+          padding={{ xs: "2px", sm: "6px" }}
         >
           {children}
         </Stack>

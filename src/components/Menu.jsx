@@ -22,24 +22,63 @@ const Menu = () => {
       direction="row"
       justifyContent="space-evenly"
       alignItems="center"
-      spacing="8px"
+      spacing={{ xs: "4px", sm: "8px" }}
     >
-      <PopoverButton icon={<PersonIcon />}>
+      <PopoverButton
+        icon={
+          <PersonIcon
+            sx={{
+              width: { xs: "18px", sm: "24px" },
+              height: { xs: "18px", sm: "24px" },
+            }}
+          />
+        }
+      >
         <TooltipedButton
-          icon={<FaceIcon />}
+          icon={
+            <FaceIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
         />
         <TooltipedButton
-          icon={<LogoutIcon />}
+          icon={
+            <LogoutIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={<Lsi lsi={{ en: "Log out", cs: "Odhlásit se" }} />}
           onClick={logout}
         />
       </PopoverButton>
-      <PopoverButton icon={<MenuIcon />}>
+      <PopoverButton
+        icon={
+          <MenuIcon
+            sx={{
+              width: { xs: "18px", sm: "24px" },
+              height: { xs: "18px", sm: "24px" },
+            }}
+          />
+        }
+      >
         <TooltipedButton
-          icon={<QuestionMarkIcon />}
+          icon={
+            <QuestionMarkIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={
             <Lsi
               lsi={{
