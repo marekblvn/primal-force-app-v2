@@ -4,7 +4,7 @@ const { useState, useEffect } = require("react");
 
 const useGetCommand = ({
   command,
-  skip: skipInitial = false,
+  skipInitial = false,
   initialParams = {},
 }) => {
   const [data, setData] = useState(undefined);
