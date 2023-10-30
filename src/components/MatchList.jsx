@@ -1,4 +1,11 @@
-import { Container, Pagination, Stack } from "@mui/material";
+import {
+  Container,
+  Pagination,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
+import Lsi from "./Lsi";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 
 const MatchList = ({
@@ -8,7 +15,8 @@ const MatchList = ({
   pageIndex,
   onMatchDeleteClick,
 }) => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
+  const theme = useTheme();
   const { pageSize, total } = pageInfo;
   const renderMatches = (matches) =>
     matches.map((match, index) => {
@@ -16,7 +24,34 @@ const MatchList = ({
     });
 
   if (!itemList?.length) {
-    return <p>No Data</p>;
+    return (
+      <Container
+        sx={{
+          minHeight: "90vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography
+          color={theme.palette.secondary.light}
+          fontFamily="Red Hat Display, sans-serif"
+          fontSize="32px"
+          textTransform="uppercase"
+          sx={{ textShadow: `${theme.palette.primary.main} 1px 0 10px` }}
+          fontWeight={700}
+          letterSpacing="2px"
+          textAlign="center"
+        >
+          <Lsi
+            lsi={{
+              en: "No matches found",
+              cs: "Nepodařilo se najít žádné zápasy",
+            }}
+          />
+        </Typography>
+      </Container>
+    );
   }
 
   return (
