@@ -1,6 +1,6 @@
 const { useState, useEffect } = require("react");
 
-const useGetCommand = (command, { skip = false, initialParams = {} }) => {
+const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
   const [data, setData] = useState(undefined);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -32,3 +32,5 @@ const useGetCommand = (command, { skip = false, initialParams = {} }) => {
     get,
   };
 };
+
+export default useGetCommand;
