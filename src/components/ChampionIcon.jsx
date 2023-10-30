@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import unknown from "../static/img/unknown.png";
+import unknown from "../static/img/icons/unknown.png";
 import champions from "../static/data/champions.json";
 import { useChampionImages } from "../contexts";
 

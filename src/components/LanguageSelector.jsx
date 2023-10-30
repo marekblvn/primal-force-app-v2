@@ -1,6 +1,6 @@
 import { IconButton, Tooltip, Box } from "@mui/material";
-import UK_Flag from "../static/img/united-kingdom-flag-icon.svg";
-import CZ_Flag from "../static/img/czech-republic-flag-icon.svg";
+import UK_Flag from "../static/img/icons/united-kingdom-flag-icon.svg";
+import CZ_Flag from "../static/img/icons/czech-republic-flag-icon.svg";
 import { useLsi } from "../contexts";
 import Lsi from "./Lsi";
 

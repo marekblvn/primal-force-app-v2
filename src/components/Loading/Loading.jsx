@@ -1,5 +1,5 @@
 import "./styles.css";
-import logo from "../../static/img/primal-force-logo.png";
+import logo from "../../static/img/icons/primal-force-logo.png";
 
 const Loading = () => {
   return (
