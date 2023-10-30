@@ -8,6 +8,7 @@ import { ThemeProvider } from "@emotion/react";
 import { LsiProvider } from "./contexts/lsi/lsi-provider";
 import { ChampionImageProvider } from "./contexts/champion-image/champion-image-provider";
 import theme from "./utils/theme";
+import { TokenProvider } from "./contexts/token/token-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,7 +24,12 @@ root.render(
             scope: "openid profile email read:match delete:match create:match",
           }}
         >
-          <App />
+          <TokenProvider
+            audience={process.env.REACT_APP_AUTH0_API}
+            scope="read:match delete:match create:match"
+          >
+            <App />
+          </TokenProvider>
         </Auth0Provider>
       </LsiProvider>
     </ChampionImageProvider>
