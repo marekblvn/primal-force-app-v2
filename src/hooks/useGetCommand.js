@@ -17,7 +17,8 @@ const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
   const get = async (params = {}) => {
     resetError();
     setLoading(true);
-    const res = await command(params);
+    const res = await command({ params });
+    // const res = await command({params, token}); TODO: Remove after implementing token context
     setLoading(false);
     if (!res.ok) {
       return setError(res.data?.error);
