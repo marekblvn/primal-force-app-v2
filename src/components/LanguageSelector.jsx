@@ -32,8 +32,8 @@ const LanguageSelector = () => {
           component="img"
           alt={language}
           src={languageMap[language]}
-          height={"24px"}
-          width={"24px"}
+          height={{ xs: "18px", sm: "24px" }}
+          width={{ xs: "18px", sm: "24px" }}
         />
       </Tooltip>
     </IconButton>

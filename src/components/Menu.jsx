@@ -1,5 +1,5 @@
 // components
-import { Stack } from "@mui/material";
+import { Divider, Stack, useTheme } from "@mui/material";
 import PopoverButton from "./PopoverButton";
 import LanguageSelector from "./LanguageSelector";
 import Lsi from "./Lsi";
@@ -17,29 +17,72 @@ import { useNavigate } from "react-router-dom";
 const Menu = () => {
   const { logout } = useAuth0();
   const navigate = useNavigate();
+  const theme = useTheme();
   return (
     <Stack
       direction="row"
       justifyContent="space-evenly"
       alignItems="center"
-      spacing="8px"
+      spacing={{ xs: "4px", sm: "8px" }}
     >
-      <PopoverButton icon={<PersonIcon />}>
+      <PopoverButton
+        icon={
+          <PersonIcon
+            sx={{
+              width: { xs: "18px", sm: "24px" },
+              height: { xs: "18px", sm: "24px" },
+            }}
+          />
+        }
+      >
         <TooltipedButton
-          icon={<FaceIcon />}
+          icon={
+            <FaceIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
         />
+        <Divider
+          sx={{ background: theme.palette.secondary.light, width: "105%" }}
+        />
         <TooltipedButton
-          icon={<LogoutIcon />}
+          icon={
+            <LogoutIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={<Lsi lsi={{ en: "Log out", cs: "Odhlásit se" }} />}
           onClick={logout}
         />
       </PopoverButton>
-      <PopoverButton icon={<MenuIcon />}>
+      <PopoverButton
+        icon={
+          <MenuIcon
+            sx={{
+              width: { xs: "18px", sm: "24px" },
+              height: { xs: "18px", sm: "24px" },
+            }}
+          />
+        }
+      >
         <TooltipedButton
-          icon={<QuestionMarkIcon />}
+          icon={
+            <QuestionMarkIcon
+              sx={{
+                width: { xs: "18px", sm: "24px" },
+                height: { xs: "18px", sm: "24px" },
+              }}
+            />
+          }
           tooltipText={
             <Lsi
               lsi={{
@@ -49,6 +92,9 @@ const Menu = () => {
             />
           }
           onClick={() => navigate("/about")}
+        />
+        <Divider
+          sx={{ background: theme.palette.secondary.light, width: "105%" }}
         />
         <LanguageSelector />
       </PopoverButton>

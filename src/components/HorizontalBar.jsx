@@ -2,8 +2,14 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./Logo";
 import { useTheme } from "@emotion/react";
 import Menu from "./Menu";
+import ChampionSelect from "./SearchBar/ChampionSelect";
+import SearchBar from "./SearchBar/SearchBar";
 
-const HorizontalBar = () => {
+const HorizontalBar = ({
+  championFilter,
+  onChampionFilterChange,
+  onChampionFilterClear,
+}) => {
   const theme = useTheme();
   return (
     <AppBar
@@ -18,11 +24,16 @@ const HorizontalBar = () => {
         sx={{
           alignItems: "center",
           justifyContent: "space-between",
-          paddingRight: { xs: "22px", sm: "24px" },
+          paddingRight: { xs: "16px", sm: "24px" },
           paddingLeft: { xs: "8px", sm: "16px" },
         }}
       >
         <Logo />
+        <SearchBar
+          championFilter={championFilter}
+          onChampionFilterChange={onChampionFilterChange}
+          onChampionFilterClear={onChampionFilterClear}
+        />
         <Menu />
       </Toolbar>
     </AppBar>

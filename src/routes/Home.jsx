@@ -1,9 +1,22 @@
+import { useState } from "react";
 import HorizontalBar from "../components/HorizontalBar";
 
 const Home = () => {
+  const [championFilter, setChampionFilter] = useState([]);
+  const handleChangeChampionFilter = (e) => {
+    const {
+      target: { value },
+    } = e;
+    setChampionFilter(value.sort());
+  };
+  const handleClearChampionFilter = () => setChampionFilter([]);
   return (
     <div>
-      <HorizontalBar />
+      <HorizontalBar
+        championFilter={championFilter}
+        onChampionFilterChange={handleChangeChampionFilter}
+        onChampionFilterClear={handleClearChampionFilter}
+      />
       <p>Home</p>
     </div>
   );
