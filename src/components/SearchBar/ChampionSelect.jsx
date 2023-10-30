@@ -15,7 +15,7 @@ import champions from "../../static/data/champions.json";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
-  const { width, height } = useWindowDimensions();
+  const { width } = useWindowDimensions();
   const selectToScreenProportion = 0.45;
   const championIconSize = width > 600 ? 32 : 18; //px
   const maxGallerySize =

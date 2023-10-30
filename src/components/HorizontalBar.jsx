@@ -2,7 +2,6 @@ import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./Logo";
 import { useTheme } from "@emotion/react";
 import Menu from "./Menu";
-import ChampionSelect from "./SearchBar/ChampionSelect";
 import SearchBar from "./SearchBar/SearchBar";
 
 const HorizontalBar = ({
