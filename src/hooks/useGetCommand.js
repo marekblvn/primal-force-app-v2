@@ -1,9 +1,12 @@
+import { useToken } from "../contexts";
+
 const { useState, useEffect } = require("react");
 
 const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
   const [data, setData] = useState(undefined);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+  const token = useToken();
 
   useEffect(() => {
     if (error) return;
@@ -17,8 +20,7 @@ const useGetCommand = ({ command, skip = false, initialParams = {} }) => {
   const get = async (params = {}) => {
     resetError();
     setLoading(true);
-    const res = await command({ params });
-    // const res = await command({params, token}); TODO: Remove after implementing token context
+    const res = await command({ params, token });
     setLoading(false);
     if (!res.ok) {
       return setError(res.data?.error);

@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { useToken } from "../contexts";
 
 const usePostCommand = ({ command }) => {
   const [data, setData] = useState(undefined);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const token = useToken();
 
   const resetError = () => setError(null);
 
   const post = async ({ params = {}, successCallback, errorCallback }) => {
     resetError();
     setLoading(true);
-    const res = await command({ params });
-    // const res = await command({params, token}); TODO: Remove after implementing token context
+    const res = await command({ params, token });
     setLoading(false);
     if (!res.ok) {
       errorCallback && errorCallback(res.data?.error);
