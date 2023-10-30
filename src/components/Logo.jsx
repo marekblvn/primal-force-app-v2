@@ -24,8 +24,8 @@ const Logo = () => {
           component="img"
           sx={{
             [theme.breakpoints.down("sm")]: {
-              width: "48px",
-              height: "48px",
+              width: "32px",
+              height: "32px",
             },
             [theme.breakpoints.up("sm")]: {
               width: "64px",
