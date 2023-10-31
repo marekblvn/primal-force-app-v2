@@ -16,12 +16,15 @@ import Lsi from "../components/Lsi";
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
   const [pageIndex, setPageIndex] = useState(0);
+  const [matchIdToDelete, setMatchIdToDelete] = useState(null);
+  const [openAddMatchDialog, setOpenAddMatchDialog] = useState(false);
+  const [openDeleteMatchDialog, setOpenDeleteMatchDialog] = useState(false);
 
   const {
     data: matchListData,
     error: matchListError,
     loading: matchListLoading,
-    get,
+    get: getMatchList,
   } = useGetCommand({
     command: matchList,
     skipInitial: false,
@@ -42,8 +45,27 @@ const Home = () => {
     post: postMatchDelete,
   } = usePostCommand({ command: matchDelete });
 
+  const handleOpenAddMatchDialog = () => setOpenAddMatchDialog(true);
+  const handleCloseAddMatchDialog = () => setOpenAddMatchDialog(false);
+  const handleOpenDeleteMatchDialog = (id) => {
+    setMatchIdToDelete(id);
+    setOpenDeleteMatchDialog(true);
+  };
+  const handleCloseDeleteMatchDialog = () => {
+    setMatchIdToDelete(null);
+    setOpenDeleteMatchDialog(false);
+  };
+
+  const handleChangePageIndex = (event, page) => {
+    setPageIndex(page - 1);
+    getMatchList({
+      championNameList: championFilter,
+      pageIndex: page - 1,
+    });
+  };
+
   const handleSearch = () =>
-    get({ championNameList: championFilter, pageIndex });
+    getMatchList({ championNameList: championFilter, pageIndex });
 
   const handleChangeChampionFilter = (e) => {
     const {
@@ -51,7 +73,10 @@ const Home = () => {
     } = e;
     setChampionFilter(value.sort());
   };
-  const handleClearChampionFilter = () => setChampionFilter([]);
+  const handleClearChampionFilter = () => {
+    setChampionFilter([]);
+    getMatchList();
+  };
 
   const handleAddMatch = ({ routingCode, gameId }) => {
     postMatchAdd({
@@ -59,6 +84,26 @@ const Home = () => {
       successCallback: () => {},
       errorCallback: () => {},
     });
+  };
+
+  const handleAddMatchSuccess = () => {
+    renderSuccessSnackbar(
+      { en: "Match added!", cs: "Zápas přidán!" },
+      handleCloseAddMatchDialog,
+      getMatchList()
+    );
+  };
+
+  const handleDeleteMatch = () => {
+    postMatchDelete({ id: matchIdToDelete });
+  };
+
+  const handleDeleteMatchSuccess = () => {
+    renderSuccessSnackbar(
+      { en: "Match removed.", cs: "Západ odebrán." },
+      handleCloseDeleteMatchDialog,
+      getMatchList()
+    );
   };
 
   const renderSuccessSnackbar = (lsi) => {
@@ -91,7 +136,14 @@ const Home = () => {
         onChampionFilterChange={handleChangeChampionFilter}
         onChampionFilterClear={handleClearChampionFilter}
       />
-      <MatchListProvider data={matchListData} />
+      <MatchListProvider
+        data={matchListData}
+        error={matchListError}
+        loading={matchListLoading}
+        onPageIndexChange={handleChangePageIndex}
+        pageIndex={pageIndex}
+        onDeleteMatchClick={handleOpenDeleteMatchDialog}
+      />
     </div>
   );
 };

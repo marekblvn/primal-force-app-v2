@@ -1,6 +1,7 @@
 import Loading from "./Loading/Loading";
 import MatchList from "./MatchList";
 import Error from "./Error";
+import { Container } from "@mui/material";
 const MatchListProvider = ({
   data,
   error,
@@ -9,16 +10,29 @@ const MatchListProvider = ({
   pageIndex,
   onDeleteMatchClick,
 }) => {
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <Container
+        sx={{
+          width: "100%",
+          height: "90vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Loading />
+      </Container>
+    );
   if (error) return <Error error={error} />;
   if (data)
     return (
       <MatchList
         itemList={data.itemList}
         pageInfo={data.pageInfo}
-        onPageIndexChange={() => {}}
-        pageIndex={0}
-        onMatchDeleteClick={() => {}}
+        onPageIndexChange={onPageIndexChange}
+        pageIndex={pageIndex}
+        onMatchDeleteClick={onDeleteMatchClick}
       />
     );
 };
