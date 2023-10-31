@@ -14,7 +14,7 @@ const usePostCommand = ({ command }) => {
     setLoading(true);
     const res = await command({ params, token });
     setLoading(false);
-    if (!res.ok) {
+    if (!res.statusText === "OK") {
       errorCallback && errorCallback(res.data?.error);
       return setError(res.data?.error);
     }
