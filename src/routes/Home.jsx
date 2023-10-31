@@ -86,6 +86,7 @@ const Home = () => {
   return (
     <div>
       <HorizontalBar
+        onSearch={handleSearch}
         championFilter={championFilter}
         onChampionFilterChange={handleChangeChampionFilter}
         onChampionFilterClear={handleClearChampionFilter}

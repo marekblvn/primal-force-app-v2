@@ -5,6 +5,7 @@ import Menu from "./Menu";
 import SearchBar from "./SearchBar/SearchBar";
 
 const HorizontalBar = ({
+  onSearch,
   championFilter,
   onChampionFilterChange,
   onChampionFilterClear,
@@ -29,6 +30,7 @@ const HorizontalBar = ({
       >
         <Logo />
         <SearchBar
+          onSearch={onSearch}
           championFilter={championFilter}
           onChampionFilterChange={onChampionFilterChange}
           onChampionFilterClear={onChampionFilterClear}
