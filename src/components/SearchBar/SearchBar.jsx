@@ -21,6 +21,7 @@ const SearchBar = ({
       }}
     >
       <ActionButton
+        onClick={onSearch}
         icon={
           <SearchIcon
             sx={{

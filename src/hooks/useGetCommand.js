@@ -26,7 +26,7 @@ const useGetCommand = ({
     setLoading(true);
     const res = await command({ params, token });
     setLoading(false);
-    if (!res.ok) {
+    if (!res.statusText === "OK") {
       return setError(res.data?.error);
     }
     setData(res.data);
