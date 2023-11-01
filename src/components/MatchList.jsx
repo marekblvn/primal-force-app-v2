@@ -7,6 +7,7 @@ import {
 } from "@mui/material";
 import Lsi from "./Lsi";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import MatchCard from "./MatchCard/MatchCard";
 
 const MatchList = ({
   itemList,
@@ -20,7 +21,13 @@ const MatchList = ({
   const { pageSize, total } = pageInfo;
   const renderMatches = (matches) =>
     matches.map((match, index) => {
-      return <p>Match Card</p>;
+      return (
+        <MatchCard
+          key={index}
+          match={match}
+          onDeleteClick={onMatchDeleteClick}
+        />
+      );
     });
 
   if (!itemList?.length) {
@@ -55,7 +62,7 @@ const MatchList = ({
   }
 
   return (
-    <Container sx={{ padding: "16px 0px 0px 16px" }}>
+    <Container sx={{ padding: "16px 0px 12px 16px" }}>
       <Stack
         direction="column"
         spacing="16px"
@@ -70,15 +77,6 @@ const MatchList = ({
           onChange={onPageIndexChange}
           color="primary"
           size={width > 900 ? "medium" : "small"}
-          sx={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            justifyContent: "center",
-            paddingBottom: "8px",
-          }}
         />
       </Stack>
     </Container>
