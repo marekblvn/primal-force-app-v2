@@ -1,13 +1,25 @@
-import { SvgIcon } from "@mui/material";
-
-const KillIcon = (props) => {
+const KillIcon = ({ size, color = "#000000" }) => {
+  const sizes = {
+    small: "16px",
+    medium: "20px",
+    large: "24px",
+  };
   return (
-    <SvgIcon {...props}>
+    <svg
+      width={sizes[size]}
+      height={sizes[size]}
+      viewBox="0 0 16 16"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
-        d="M10.6667 2L6.00067 8V9L4 7L3.33333 9.33333L4.334 10.3333L2 12.6667V14H3.33333L5.66667 11.6667L6.66733 12.6667L9.00067 12L7 10H8L14 5.33333V2H10.6667ZM7 8.5L11.334 4H12.0007V4.66667L7.50067 9H7V8.5Z"
-        fill="#B3B4D0"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M8.8001 11.2001L12.0001 14.4001H14.4001V12.0001L11.2001 8.8001L8.8001 11.2001ZM5.0401 3.7601L3.2001 1.6001L1.6001 3.2001L3.7601 5.0401L2.4001 6.4001L4.0001 8.0001L8.0001 4.0001L6.4001 2.4001L5.0401 3.7601ZM12.0001 8.0001L13.6001 6.4001L12.2401 5.0401L14.4001 3.2001L12.8001 1.6001L10.9601 3.7601L9.6001 2.4001L8.0001 4.0001L9.2001 5.2001L1.6001 12.0001V14.4001H4.0001L10.8001 6.8001L12.0001 8.0001Z"
+        fill={color}
+        stroke="#000000"
       />
-    </SvgIcon>
+    </svg>
   );
 };
 
