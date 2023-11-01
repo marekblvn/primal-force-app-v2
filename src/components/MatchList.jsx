@@ -1,10 +1,4 @@
-import {
-  Container,
-  Pagination,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Container, Pagination, Typography, useTheme } from "@mui/material";
 import Lsi from "./Lsi";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 import MatchCard from "./MatchCard/MatchCard";
@@ -62,23 +56,26 @@ const MatchList = ({
   }
 
   return (
-    <Container sx={{ padding: "16px 0px 12px 16px" }}>
-      <Stack
-        direction="column"
-        spacing="16px"
-        alignItems="center"
-        justifyContent="center"
-        padding={0}
-      >
-        {renderMatches(itemList)}
-        <Pagination
-          page={pageIndex + 1}
-          count={Math.ceil(total / pageSize)}
-          onChange={onPageIndexChange}
-          color="primary"
-          size={width > 900 ? "medium" : "small"}
-        />
-      </Stack>
+    <Container
+      sx={{
+        paddingTop: "16px",
+        paddingBottom: "14px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      disableGutters={true}
+    >
+      {renderMatches(itemList)}
+      <Pagination
+        page={pageIndex + 1}
+        count={Math.ceil(total / pageSize)}
+        onChange={onPageIndexChange}
+        color="primary"
+        size={width > 900 ? "medium" : "small"}
+      />
     </Container>
   );
 };

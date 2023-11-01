@@ -1,4 +1,4 @@
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import {
   BaronIcon,
   DragonIcon,
@@ -8,8 +8,6 @@ import {
 } from "../Icons";
 
 const Objective = ({ type, data, team }) => {
-  const theme = useTheme();
-  const smScreen = useMediaQuery(theme.breakpoints.down("sm"));
   const direction = {
     blue: type === "champion" ? "row-reverse" : "row",
     red: type === "champion" ? "row" : "row-reverse",
@@ -55,16 +53,17 @@ const Objective = ({ type, data, team }) => {
   return (
     <Box
       display="flex"
-      flexDirection={{ xs: "column", md: direction[team] }}
+      flexDirection={{ xs: "column", s: direction[team] }}
       justifyContent="center"
       alignItems="center"
-      gap="4px"
+      gap={{ xs: "2px", s: "4px" }}
     >
       {objectiveIcons[type]}
       <Typography
         fontFamily={"Red Hat Display, sans-serif"}
         textAlign="center"
         fontSize={{ xs: "11px", sm: "14px", md: "16px", lg: "18px" }}
+        fontWeight={700}
       >
         {kills}
       </Typography>
