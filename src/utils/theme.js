@@ -7,10 +7,15 @@ const theme = createTheme({
     warning: { main: "#F99417" },
     white: { main: "#F5F5F5" },
     black: { main: "#191919" },
+    blue: { main: "#0A96AA" },
+    red: { main: "#BE1E37" },
+    matchBorder: { green: "#1aa31a", red: "#d63333" },
+    matchFill: { green: "#E1EEE1", red: "#F2E3E3" },
   },
   breakpoints: {
     values: {
       xs: 0,
+      s: 400,
       sm: 600,
       md: 900,
       lg: 1200,

@@ -1,12 +1,7 @@
-import {
-  Container,
-  Pagination,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Container, Pagination, Typography, useTheme } from "@mui/material";
 import Lsi from "./Lsi";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import MatchCard from "./MatchCard/MatchCard";
 
 const MatchList = ({
   itemList,
@@ -20,7 +15,13 @@ const MatchList = ({
   const { pageSize, total } = pageInfo;
   const renderMatches = (matches) =>
     matches.map((match, index) => {
-      return <p>Match Card</p>;
+      return (
+        <MatchCard
+          key={index}
+          match={match}
+          onDeleteClick={onMatchDeleteClick}
+        />
+      );
     });
 
   if (!itemList?.length) {
@@ -55,32 +56,26 @@ const MatchList = ({
   }
 
   return (
-    <Container sx={{ padding: "16px 0px 0px 16px" }}>
-      <Stack
-        direction="column"
-        spacing="16px"
-        alignItems="center"
-        justifyContent="center"
-        padding={0}
-      >
-        {renderMatches(itemList)}
-        <Pagination
-          page={pageIndex + 1}
-          count={Math.ceil(total / pageSize)}
-          onChange={onPageIndexChange}
-          color="primary"
-          size={width > 900 ? "medium" : "small"}
-          sx={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: "flex",
-            justifyContent: "center",
-            paddingBottom: "8px",
-          }}
-        />
-      </Stack>
+    <Container
+      sx={{
+        paddingTop: "16px",
+        paddingBottom: "14px",
+        display: "flex",
+        flexDirection: "column",
+        gap: "16px",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+      disableGutters={true}
+    >
+      {renderMatches(itemList)}
+      <Pagination
+        page={pageIndex + 1}
+        count={Math.ceil(total / pageSize)}
+        onChange={onPageIndexChange}
+        color="primary"
+        size={width > 900 ? "medium" : "small"}
+      />
     </Container>
   );
 };
