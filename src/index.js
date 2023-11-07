@@ -5,10 +5,10 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { ThemeProvider } from "@emotion/react";
-import { LsiProvider } from "./contexts/lsi/lsi-provider";
-import { ChampionImageProvider } from "./contexts/champion-image/champion-image-provider";
+import LsiProvider from "./contexts/lsi/lsi-provider";
+import ChampionImageProvider from "./contexts/champion-image/champion-image-provider";
 import theme from "./utils/theme";
-import { TokenProvider } from "./contexts/token/token-provider";
+import TokenProvider from "./contexts/token/token-provider";
 import SnackbarProvider from "./contexts/snackbar/snackbar-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

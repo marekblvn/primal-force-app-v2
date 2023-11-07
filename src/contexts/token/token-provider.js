@@ -25,4 +25,4 @@ const TokenProvider = ({ children, audience, scope }) => {
   );
 };
 
-export { TokenProvider, TokenContext };
+export default TokenProvider;

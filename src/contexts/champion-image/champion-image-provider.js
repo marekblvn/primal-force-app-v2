@@ -35,4 +35,4 @@ const ChampionImageProvider = ({ children }) => {
     </ChampionImageContext.Provider>
   );
 };
-export { ChampionImageProvider, ChampionImageContext };
+export default ChampionImageProvider;
