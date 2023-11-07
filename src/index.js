@@ -5,11 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Auth0Provider } from "@auth0/auth0-react";
 import { ThemeProvider } from "@emotion/react";
-import { LsiProvider } from "./contexts/lsi/lsi-provider";
-import { ChampionImageProvider } from "./contexts/champion-image/champion-image-provider";
+import LsiProvider from "./contexts/lsi/lsi-provider";
+import ChampionImageProvider from "./contexts/champion-image/champion-image-provider";
 import theme from "./utils/theme";
-import { TokenProvider } from "./contexts/token/token-provider";
+import TokenProvider from "./contexts/token/token-provider";
 import SnackbarProvider from "./contexts/snackbar/snackbar-provider";
+import ScopeProvider from "./contexts/scope/scope-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -31,7 +32,9 @@ root.render(
               audience={process.env.REACT_APP_PMF_API_URL}
               scope="read:match delete:match create:match"
             >
-              <App />
+              <ScopeProvider>
+                <App />
+              </ScopeProvider>
             </TokenProvider>
           </Auth0Provider>
         </SnackbarProvider>
