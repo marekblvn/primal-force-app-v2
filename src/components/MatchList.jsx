@@ -5,14 +5,14 @@ import MatchCard from "./MatchCard/MatchCard";
 
 const MatchList = ({
   itemList,
-  pageInfo,
+  pageSize = 0,
+  total = 0,
   onPageIndexChange,
   pageIndex,
   onMatchDeleteClick,
 }) => {
   const { width } = useWindowDimensions();
   const theme = useTheme();
-  const { pageSize, total } = pageInfo;
   const renderMatches = (matches) =>
     matches.map((match, index) => {
       return (

@@ -10,7 +10,7 @@ const MatchHeader = ({ gameCreation, gameDuration, teams }) => {
     <Stack direction="row" justifyContent="space-between" alignItems="center">
       <ObjectiveList
         objectives={blueTeamData.objectives}
-        teamGold={blueTeamData.teamGold}
+        teamGold={blueTeamData.goldEarned}
         bans={blueTeamData.bans}
         team="blue"
       />
@@ -22,7 +22,7 @@ const MatchHeader = ({ gameCreation, gameDuration, teams }) => {
       />
       <ObjectiveList
         objectives={redTeamData.objectives}
-        teamGold={redTeamData.teamGold}
+        teamGold={redTeamData.goldEarned}
         bans={redTeamData.bans}
         team="red"
       />

@@ -6,18 +6,7 @@ import MatchParticipants from "./MatchParticipants";
 
 const MatchCard = ({ match, onDeleteClick }) => {
   const theme = useTheme();
-  const {
-    _id,
-    info: { gameCreation, gameDuration, teams, participants },
-  } = match;
-  const blueTeamGold = participants
-    .filter((p) => p.teamId === 100)
-    .map((p) => p.goldEarned)
-    .reduce((a, b) => a + b);
-  const redTeamGold = participants
-    .filter((p) => p.teamId === 200)
-    .map((p) => p.goldEarned)
-    .reduce((a, b) => a + b);
+  const { _id, gameCreation, gameDuration, teams, participants } = match;
   const winningTeamId = teams.filter((t) => t.win)[0].teamId;
   const PMFTeamId = participants.filter((p) =>
     Object.values(summonerNames).flat().includes(p.summonerName)
@@ -52,8 +41,6 @@ const MatchCard = ({ match, onDeleteClick }) => {
             gameCreation={gameCreation}
             gameDuration={gameDuration}
             teams={teams}
-            blueTeamGold={blueTeamGold}
-            redTeamGold={redTeamGold}
           />
           <MatchParticipants participants={participants} />
         </Stack>

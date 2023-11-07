@@ -29,7 +29,8 @@ const MatchListProvider = ({
     return (
       <MatchList
         itemList={data.itemList}
-        pageInfo={data.pageInfo}
+        pageSize={data.pageInfo.pageSize}
+        total={data.pageInfo.total}
         onPageIndexChange={onPageIndexChange}
         pageIndex={pageIndex}
         onMatchDeleteClick={onDeleteMatchClick}
