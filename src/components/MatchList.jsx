@@ -1,17 +1,8 @@
-import { Container, Pagination, Typography, useTheme } from "@mui/material";
+import { Container, Typography, useTheme } from "@mui/material";
 import Lsi from "./Lsi";
-import useWindowDimensions from "../hooks/useWindowDimensions";
 import MatchCard from "./MatchCard/MatchCard";
 
-const MatchList = ({
-  itemList,
-  pageSize = 0,
-  total = 0,
-  onPageIndexChange,
-  pageIndex,
-  onMatchDeleteClick,
-}) => {
-  const { width } = useWindowDimensions();
+const MatchList = ({ itemList, onMatchDeleteClick }) => {
   const theme = useTheme();
   const renderMatches = (matches) =>
     matches.map((match, index) => {
@@ -59,7 +50,7 @@ const MatchList = ({
     <Container
       sx={{
         paddingTop: "16px",
-        paddingBottom: "14px",
+        paddingBottom: { xs: "46px", md: "50px" },
         display: "flex",
         flexDirection: "column",
         gap: "16px",
@@ -69,13 +60,6 @@ const MatchList = ({
       disableGutters={true}
     >
       {renderMatches(itemList)}
-      <Pagination
-        page={pageIndex + 1}
-        count={Math.ceil(total / pageSize)}
-        onChange={onPageIndexChange}
-        color="primary"
-        size={width > 900 ? "medium" : "small"}
-      />
     </Container>
   );
 };
