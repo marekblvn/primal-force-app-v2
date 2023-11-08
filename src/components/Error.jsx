@@ -3,6 +3,7 @@ import {
   IconButton,
   Stack,
   SvgIcon,
+  Tooltip,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -28,13 +29,19 @@ const Error = ({ error }) => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
+        paddingTop: "12px",
       }}
     >
       <Stack direction="column" sx={{ textAlign: "center" }}>
         <Typography
           color={theme.palette.primary.dark}
           fontFamily="Red Hat Display, sans-serif"
-          fontSize="48px"
+          fontSize={{
+            xs: "24px",
+            md: "32px",
+            lg: "40px",
+            xl: "48px",
+          }}
           textTransform="uppercase"
           fontWeight={900}
         >
@@ -43,7 +50,7 @@ const Error = ({ error }) => {
         <Typography
           color={theme.palette.primary.main}
           fontFamily="Red Hat Display, sans-serif"
-          fontSize="36px"
+          fontSize={{ xl: "36px", lg: "28px", md: "24px", xs: "20px" }}
           fontWeight={700}
         >
           <Lsi
@@ -55,11 +62,37 @@ const Error = ({ error }) => {
             }
           />
         </Typography>
-        <Stack direction="row">
+        <Stack direction="column" alignItems="center">
+          <Tooltip
+            title={
+              <Lsi
+                lsi={{
+                  en: "Copy to clipboard",
+                  cs: "Zkopírovat error",
+                }}
+              />
+            }
+            arrow
+            placement="bottom"
+          >
+            <IconButton
+              sx={{
+                color: theme.palette.primary.dark,
+                "&:hover": { color: theme.palette.white.main },
+                width: { xl: "24px", lg: "20px", xs: "16px" },
+                height: { xl: "24px", lg: "20px", xs: "16px" },
+                padding: "20px",
+              }}
+              disableRipple
+              onClick={onCopyClick}
+            >
+              <ContentCopyIcon />
+            </IconButton>
+          </Tooltip>
           <Typography
             color={theme.palette.primary.dark}
             fontFamily="Red Hat Display, sans-serif"
-            fontSize="24px"
+            fontSize={{ xl: "24px", lg: "20px", xs: "16px" }}
           >
             <Lsi
               lsi={{
@@ -68,12 +101,6 @@ const Error = ({ error }) => {
               }}
             />
           </Typography>
-          <IconButton
-            sx={{ color: theme.palette.primary.dark }}
-            onClick={onCopyClick}
-          >
-            <ContentCopyIcon />
-          </IconButton>
         </Stack>
         <Stack direction="row" justifyContent="center" alignItems="center">
           <NavLink
