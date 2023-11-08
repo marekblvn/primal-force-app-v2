@@ -12,6 +12,7 @@ import {
 } from "../services/primal-force-api/match-service";
 import matchListData from "../mock/match/list.json";
 import Lsi from "../components/Lsi";
+import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -95,7 +96,11 @@ const Home = () => {
   };
 
   const handleDeleteMatch = () => {
-    postMatchDelete({ id: matchIdToDelete });
+    postMatchDelete(
+      { id: matchIdToDelete },
+      handleDeleteMatchSuccess,
+      renderErrorSnackbar
+    );
   };
 
   const handleDeleteMatchSuccess = () => {
@@ -114,7 +119,8 @@ const Home = () => {
     });
   };
 
-  const renderErrorSnackbar = (errorLsi) => {
+  const renderErrorSnackbar = (error) => {
+    const errorLsi = error?.message;
     enqueueSnackbar(
       <Lsi
         lsi={
@@ -129,7 +135,7 @@ const Home = () => {
   };
 
   return (
-    <div>
+    <DeleteModeProvider>
       <HorizontalBar
         onSearch={handleSearch}
         championFilter={championFilter}
@@ -144,7 +150,7 @@ const Home = () => {
         pageIndex={pageIndex}
         onDeleteMatchClick={handleOpenDeleteMatchDialog}
       />
-    </div>
+    </DeleteModeProvider>
   );
 };
 
