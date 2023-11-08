@@ -3,6 +3,7 @@ import ChampionImageContext from "./champion-image/champion-image-context";
 import LsiContext from "./lsi/lsi-context";
 import TokenContext from "./token/token-context";
 import ScopeContext from "./scope/scope-context";
+import DeleteModeContext from "./delete-mode/delete-mode-context";
 
 export const useChampionImages = () => {
   const championImageContext = useContext(ChampionImageContext);
@@ -19,7 +20,12 @@ export const useToken = () => {
   return tokenContext;
 };
 
-export const useScopes = () => {
+export const useScope = () => {
   const scopeContext = useContext(ScopeContext);
   return scopeContext;
+};
+
+export const useDeleteMode = () => {
+  const deleteModeContext = useContext(DeleteModeContext);
+  return deleteModeContext;
 };

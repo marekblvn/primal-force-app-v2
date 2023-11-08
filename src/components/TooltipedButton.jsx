@@ -20,7 +20,7 @@ const TooltipedButton = ({
       <IconButton
         sx={{
           color: theme.palette.secondary.light,
-          "&:hover": { color: theme.palette.primary.dark },
+          "&:hover": { color: theme.palette.primary.main },
         }}
         onClick={onClick}
       >

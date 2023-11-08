@@ -1,7 +1,8 @@
 import Loading from "./Loading/Loading";
 import MatchList from "./MatchList";
 import Error from "./Error";
-import { Container } from "@mui/material";
+import { Container, Stack, Pagination } from "@mui/material";
+import useWindowDimensions from "../hooks/useWindowDimensions";
 const MatchListProvider = ({
   data,
   error,
@@ -10,6 +11,7 @@ const MatchListProvider = ({
   pageIndex,
   onDeleteMatchClick,
 }) => {
+  const { width } = useWindowDimensions();
   if (loading)
     return (
       <Container
@@ -25,17 +27,41 @@ const MatchListProvider = ({
       </Container>
     );
   if (error) return <Error error={error} />;
-  if (data)
+  if (data) {
+    const {
+      itemList,
+      pageInfo: { pageIndex, pageSize, total },
+    } = data;
     return (
-      <MatchList
-        itemList={data.itemList}
-        pageSize={data.pageInfo.pageSize}
-        total={data.pageInfo.total}
-        onPageIndexChange={onPageIndexChange}
-        pageIndex={pageIndex}
-        onMatchDeleteClick={onDeleteMatchClick}
-      />
+      <>
+        <MatchList
+          itemList={itemList}
+          pageSize={pageSize}
+          total={total}
+          onPageIndexChange={onPageIndexChange}
+          pageIndex={pageIndex}
+          onMatchDeleteClick={onDeleteMatchClick}
+        />
+        <Pagination
+          shape="rounded"
+          page={pageIndex + 1}
+          count={Math.ceil(total / pageSize)}
+          onChange={onPageIndexChange}
+          color="primary"
+          size={width > 900 ? "medium" : "small"}
+          sx={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "8px",
+          }}
+        />
+      </>
     );
+  }
 };
 
 export default MatchListProvider;

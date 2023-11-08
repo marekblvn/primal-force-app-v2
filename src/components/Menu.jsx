@@ -10,14 +10,19 @@ import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
 import FaceIcon from "@mui/icons-material/Face";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import DeleteIcon from "@mui/icons-material/Delete";
 // contexts
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
+import { useDeleteMode, useScope } from "../contexts";
 
 const Menu = () => {
   const { logout } = useAuth0();
   const navigate = useNavigate();
   const theme = useTheme();
+  const { deleteMode, toggleDeleteMode } = useDeleteMode();
+  const { hasScope } = useScope();
   return (
     <Stack
       direction="row"
@@ -93,6 +98,43 @@ const Menu = () => {
           }
           onClick={() => navigate("/about")}
         />
+        {hasScope("delete:match") && (
+          <>
+            <Divider
+              sx={{ background: theme.palette.secondary.light, width: "105%" }}
+            />
+            <TooltipedButton
+              icon={
+                deleteMode ? (
+                  <DeleteIcon
+                    sx={{
+                      width: { xs: "18px", sm: "24px" },
+                      height: { xs: "18px", sm: "24px" },
+                    }}
+                  />
+                ) : (
+                  <DeleteOutlineIcon
+                    sx={{
+                      width: { xs: "18px", sm: "24px" },
+                      height: { xs: "18px", sm: "24px" },
+                    }}
+                  />
+                )
+              }
+              tooltipText={
+                <Lsi
+                  lsi={{
+                    en: deleteMode
+                      ? "Turn off delete mode"
+                      : "Turn on delete mode",
+                    cs: deleteMode ? "Vypnout mazání" : "Zapnout mazání",
+                  }}
+                />
+              }
+              onClick={toggleDeleteMode}
+            />
+          </>
+        )}
         <Divider
           sx={{ background: theme.palette.secondary.light, width: "105%" }}
         />

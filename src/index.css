@@ -3,4 +3,6 @@ body {
     font-family: 'Red Hat Display', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-ox-font-smoothing: grayscale;
+    background-color: #363062;
+    position: relative;
 }
