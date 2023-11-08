@@ -1,14 +1,13 @@
 import Loading from "./Loading/Loading";
 import MatchList from "./MatchList";
 import Error from "./Error";
-import { Container, Stack, Pagination } from "@mui/material";
+import { Container, Pagination } from "@mui/material";
 import useWindowDimensions from "../hooks/useWindowDimensions";
 const MatchListProvider = ({
   data,
   error,
   loading,
   onPageIndexChange,
-  pageIndex,
   onDeleteMatchClick,
 }) => {
   const { width } = useWindowDimensions();
