@@ -13,6 +13,8 @@ import {
 import matchListData from "../mock/match/list.json";
 import Lsi from "../components/Lsi";
 import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
+import { Dialog } from "@mui/material";
+import DeleteMatchDialog from "../components/DeleteMatchDialog";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -104,11 +106,9 @@ const Home = () => {
   };
 
   const handleDeleteMatchSuccess = () => {
-    renderSuccessSnackbar(
-      { en: "Match removed.", cs: "Západ odebrán." },
-      handleCloseDeleteMatchDialog,
-      getMatchList()
-    );
+    renderSuccessSnackbar({ en: "Match removed.", cs: "Západ odebrán." });
+    handleCloseDeleteMatchDialog();
+    getMatchList();
   };
 
   const renderSuccessSnackbar = (lsi) => {
@@ -149,6 +149,11 @@ const Home = () => {
         onPageIndexChange={handleChangePageIndex}
         pageIndex={pageIndex}
         onDeleteMatchClick={handleOpenDeleteMatchDialog}
+      />
+      <DeleteMatchDialog
+        open={openDeleteMatchDialog}
+        onClose={handleCloseDeleteMatchDialog}
+        onConfirm={handleDeleteMatch}
       />
     </DeleteModeProvider>
   );

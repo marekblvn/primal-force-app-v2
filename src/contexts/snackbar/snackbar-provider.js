@@ -6,7 +6,9 @@ import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 const _SnackbarProvider = ({ children }) => {
   return (
     <SnackbarProvider
-      action={(key) => <CloseSnackbarButton key={key} />}
+      action={(snackbarKey) => (
+        <CloseSnackbarButton snackbarKey={snackbarKey} />
+      )}
       iconVariant={{
         error: <ErrorIcon sx={{ mr: "16px" }} />,
         success: <CheckCircleIcon sx={{ mr: "16px" }} />,

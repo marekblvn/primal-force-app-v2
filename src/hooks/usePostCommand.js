@@ -9,7 +9,7 @@ const usePostCommand = ({ command }) => {
 
   const resetError = () => setError(null);
 
-  const post = async ({ params = {}, successCallback, errorCallback }) => {
+  const post = async (params = {}, successCallback, errorCallback) => {
     resetError();
     setLoading(true);
     const res = await command({ params, token });
