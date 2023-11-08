@@ -15,6 +15,7 @@ import Lsi from "../components/Lsi";
 import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
 import { Dialog } from "@mui/material";
 import DeleteMatchDialog from "../components/DeleteMatchDialog";
+import AddMatchButton from "../components/AddMatchButton";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -150,6 +151,7 @@ const Home = () => {
         pageIndex={pageIndex}
         onDeleteMatchClick={handleOpenDeleteMatchDialog}
       />
+      <AddMatchButton onClick={handleOpenAddMatchDialog} />
       <DeleteMatchDialog
         open={openDeleteMatchDialog}
         onClose={handleCloseDeleteMatchDialog}
