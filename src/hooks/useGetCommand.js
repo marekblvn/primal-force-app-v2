@@ -14,10 +14,10 @@ const useGetCommand = ({
 
   useEffect(() => {
     if (error) return;
-    if (!skipInitial) {
+    if (!skipInitial && token) {
       get(initialParams);
     }
-  }, []);
+  }, [token]);
 
   const resetError = () => setError(null);
 
