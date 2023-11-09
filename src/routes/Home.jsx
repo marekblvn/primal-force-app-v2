@@ -34,19 +34,13 @@ const Home = () => {
     initialParams: { championNameList: championFilter, pageIndex },
   });
 
-  const {
-    data: matchAddData,
-    loading: matchAddLoading,
-    error: matchAddError,
-    post: postMatchAdd,
-  } = usePostCommand({ command: matchAdd });
+  const { loading: matchAddLoading, post: postMatchAdd } = usePostCommand({
+    command: matchAdd,
+  });
 
-  const {
-    data: matchDeleteData,
-    loading: matchDeleteLoading,
-    error: matchDeleteError,
-    post: postMatchDelete,
-  } = usePostCommand({ command: matchDelete });
+  const { loading: matchDeleteLoading, post: postMatchDelete } = usePostCommand(
+    { command: matchDelete }
+  );
 
   const handleOpenAddMatchDialog = () => setOpenAddMatchDialog(true);
   const handleCloseAddMatchDialog = () => setOpenAddMatchDialog(false);
@@ -159,11 +153,13 @@ const Home = () => {
         open={openDeleteMatchDialog}
         onClose={handleCloseDeleteMatchDialog}
         onConfirm={handleDeleteMatch}
+        loading={matchDeleteLoading}
       />
       <AddMatchModal
         open={openAddMatchDialog}
         onClose={handleCloseAddMatchDialog}
         onConfirm={handleAddMatch}
+        loading={matchAddLoading}
       />
     </DeleteModeProvider>
   );
