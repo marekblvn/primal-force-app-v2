@@ -10,12 +10,11 @@ import {
   matchAdd,
   matchDelete,
 } from "../services/primal-force-api/match-service";
-import matchListData from "../mock/match/list.json";
 import Lsi from "../components/Lsi";
 import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
-import { Dialog } from "@mui/material";
 import DeleteMatchDialog from "../components/DeleteMatchDialog";
 import AddMatchButton from "../components/AddMatchButton";
+import AddMatchModal from "../components/AddMatchModal";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -83,19 +82,17 @@ const Home = () => {
   };
 
   const handleAddMatch = ({ routingCode, gameId }) => {
-    postMatchAdd({
-      params: { routingCode, gameId },
-      successCallback: () => {},
-      errorCallback: () => {},
-    });
+    postMatchAdd(
+      { routingCode, gameId },
+      handleAddMatchSuccess,
+      renderErrorSnackbar
+    );
   };
 
   const handleAddMatchSuccess = () => {
-    renderSuccessSnackbar(
-      { en: "Match added!", cs: "Zápas přidán!" },
-      handleCloseAddMatchDialog,
-      getMatchList()
-    );
+    renderSuccessSnackbar({ en: "Match added!", cs: "Zápas přidán!" });
+    handleCloseAddMatchDialog();
+    getMatchList();
   };
 
   const handleDeleteMatch = () => {
@@ -156,6 +153,11 @@ const Home = () => {
         open={openDeleteMatchDialog}
         onClose={handleCloseDeleteMatchDialog}
         onConfirm={handleDeleteMatch}
+      />
+      <AddMatchModal
+        open={openAddMatchDialog}
+        onClose={handleCloseAddMatchDialog}
+        onConfirm={handleAddMatch}
       />
     </DeleteModeProvider>
   );
