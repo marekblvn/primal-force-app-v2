@@ -1,5 +1,4 @@
 import { Typography, useFormControl } from "@mui/material";
-import Lsi from "../Lsi";
 
 const Label = ({ children }) => {
   const { required } = useFormControl();

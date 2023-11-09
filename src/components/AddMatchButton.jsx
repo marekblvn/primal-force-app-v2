@@ -1,5 +1,5 @@
 import { useTheme } from "@emotion/react";
-import { Fab, IconButton, Tooltip } from "@mui/material";
+import { IconButton, Tooltip } from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import Lsi from "./Lsi";
 

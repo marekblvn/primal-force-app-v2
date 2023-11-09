@@ -6,7 +6,6 @@ import useGetCommand from "../hooks/useGetCommand";
 import { enqueueSnackbar } from "notistack";
 import {
   matchList,
-  matchGet,
   matchAdd,
   matchDelete,
 } from "../services/primal-force-api/match-service";
