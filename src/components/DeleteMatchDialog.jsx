@@ -83,7 +83,7 @@ const DeleteMatchDialog = ({ open, onClose, onConfirm, ...props }) => {
             },
           }}
         >
-          <Lsi lsi={{ en: "Yes, I'm sure", cs: "Ano, chci" }} />
+          <Lsi lsi={{ en: "Yes", cs: "Ano" }} />
         </Button>
       </DialogActions>
     </Dialog>
