@@ -1,15 +1,8 @@
 import { AppBar, Toolbar } from "@mui/material";
 import Logo from "./Logo";
 import { useTheme } from "@emotion/react";
-import Menu from "./Menu";
-import SearchBar from "./SearchBar/SearchBar";
 
-const HorizontalBar = ({
-  onSearch,
-  championFilter,
-  onChampionFilterChange,
-  onChampionFilterClear,
-}) => {
+const HorizontalBar = ({ children }) => {
   const theme = useTheme();
   return (
     <AppBar
@@ -29,13 +22,7 @@ const HorizontalBar = ({
         }}
       >
         <Logo />
-        <SearchBar
-          onSearch={onSearch}
-          championFilter={championFilter}
-          onChampionFilterChange={onChampionFilterChange}
-          onChampionFilterClear={onChampionFilterClear}
-        />
-        <Menu />
+        {children}
       </Toolbar>
     </AppBar>
   );
