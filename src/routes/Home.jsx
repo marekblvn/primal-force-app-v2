@@ -15,6 +15,8 @@ import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
 import DeleteMatchDialog from "../components/DeleteMatchDialog";
 import AddMatchButton from "../components/AddMatchButton";
 import AddMatchModal from "../components/AddMatchModal";
+import SearchBar from "../components/SearchBar/SearchBar";
+import Menu from "../components/Menu";
 
 const Home = () => {
   const [championFilter, setChampionFilter] = useState([]);
@@ -134,12 +136,15 @@ const Home = () => {
 
   return (
     <DeleteModeProvider>
-      <HorizontalBar
-        onSearch={handleSearch}
-        championFilter={championFilter}
-        onChampionFilterChange={handleChangeChampionFilter}
-        onChampionFilterClear={handleClearChampionFilter}
-      />
+      <HorizontalBar>
+        <SearchBar
+          onSearch={handleSearch}
+          championFilter={championFilter}
+          onChampionFilterChange={handleChangeChampionFilter}
+          onChampionFilterClear={handleClearChampionFilter}
+        />
+        <Menu />
+      </HorizontalBar>
       <MatchListProvider
         data={matchListData}
         error={matchListError}
