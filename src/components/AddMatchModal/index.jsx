@@ -8,6 +8,7 @@ import {
   Stack,
   Typography,
   useTheme,
+  CircularProgress,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Lsi from "../Lsi";
@@ -15,7 +16,7 @@ import GameIdInput from "./GameIdInput";
 import RegionSelect from "./RegionSelect";
 import { useState } from "react";
 
-const AddMatchModal = ({ open, onClose, onConfirm }) => {
+const AddMatchModal = ({ open, onClose, onConfirm, loading }) => {
   const theme = useTheme();
   const [inputError, setInputError] = useState(null);
   const [gameId, setGameId] = useState("");
@@ -163,7 +164,14 @@ const AddMatchModal = ({ open, onClose, onConfirm }) => {
               }}
               disabled={inputError || !gameId.length}
             >
-              <Lsi lsi={{ en: "Add", cs: "Přidat" }} />
+              {loading ? (
+                <CircularProgress
+                  size={24}
+                  sx={{ color: theme.palette.white.main }}
+                />
+              ) : (
+                <Lsi lsi={{ en: "Add", cs: "Přidat" }} />
+              )}
             </Button>
           </Stack>
         </Stack>

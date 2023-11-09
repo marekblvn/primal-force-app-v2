@@ -5,11 +5,12 @@ import {
   DialogContent,
   DialogContentText,
   DialogTitle,
+  CircularProgress,
 } from "@mui/material";
 import Lsi from "./Lsi";
 import { useTheme } from "@emotion/react";
 
-const DeleteMatchDialog = ({ open, onClose, onConfirm, ...props }) => {
+const DeleteMatchDialog = ({ open, onClose, onConfirm, loading, ...props }) => {
   const theme = useTheme();
   return (
     <Dialog
@@ -83,7 +84,14 @@ const DeleteMatchDialog = ({ open, onClose, onConfirm, ...props }) => {
             },
           }}
         >
-          <Lsi lsi={{ en: "Yes", cs: "Ano" }} />
+          {loading ? (
+            <CircularProgress
+              size={24}
+              sx={{ color: theme.palette.white.main }}
+            />
+          ) : (
+            <Lsi lsi={{ en: "Yes", cs: "Ano" }} />
+          )}
         </Button>
       </DialogActions>
     </Dialog>
