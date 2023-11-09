@@ -90,7 +90,10 @@ const Home = () => {
   };
 
   const handleAddMatchSuccess = () => {
-    renderSuccessSnackbar({ en: "Match added!", cs: "Zápas přidán!" });
+    renderSuccessSnackbar({
+      en: "New match has been added!",
+      cs: "Byl přidán nový zápas!",
+    });
     handleCloseAddMatchDialog();
     getMatchList();
   };
@@ -104,7 +107,10 @@ const Home = () => {
   };
 
   const handleDeleteMatchSuccess = () => {
-    renderSuccessSnackbar({ en: "Match removed.", cs: "Západ odebrán." });
+    renderSuccessSnackbar({
+      en: "The match has been removed.",
+      cs: "Zápas byl odebrán.",
+    });
     handleCloseDeleteMatchDialog();
     getMatchList();
   };
