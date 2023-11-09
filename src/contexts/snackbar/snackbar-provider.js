@@ -13,6 +13,10 @@ const _SnackbarProvider = ({ children }) => {
         error: <ErrorIcon sx={{ mr: "16px" }} />,
         success: <CheckCircleIcon sx={{ mr: "16px" }} />,
       }}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "right",
+      }}
     >
       {children}
     </SnackbarProvider>
