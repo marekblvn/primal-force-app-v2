@@ -14,7 +14,6 @@ const usePostCommand = ({ command }) => {
     setLoading(true);
     const res = await command({ params, token });
     setLoading(false);
-    console.log("res: ", res);
     if (res.status !== 200 && res.status !== 201) {
       errorCallback && errorCallback(res.data?.error);
       return setError(res.data?.error);
