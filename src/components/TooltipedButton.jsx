@@ -7,7 +7,9 @@ const TooltipedButton = ({
   enterDelay = 500,
   arrow = true,
   onClick,
-  color = "primary",
+  color,
+  hoverColor,
+  ...props
 }) => {
   const theme = useTheme();
   return (
@@ -19,9 +21,12 @@ const TooltipedButton = ({
     >
       <IconButton
         sx={{
-          color: theme.palette.secondary.light,
-          "&:hover": { color: theme.palette.primary.main },
+          color: color || theme.palette.secondary.light,
+          "&:hover": {
+            color: hoverColor || theme.palette.primary.main,
+          },
         }}
+        {...props}
         onClick={onClick}
       >
         {icon}

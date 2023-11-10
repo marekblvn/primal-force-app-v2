@@ -12,7 +12,6 @@ import {
 import Lsi from "../components/Lsi";
 import DeleteModeProvider from "../contexts/delete-mode/delete-mode-provider";
 import DeleteMatchDialog from "../components/DeleteMatchDialog";
-import AddMatchButton from "../components/AddMatchButton";
 import AddMatchModal from "../components/AddMatchModal";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Menu from "../components/Menu";
@@ -142,7 +141,7 @@ const Home = () => {
           onChampionFilterChange={handleChangeChampionFilter}
           onChampionFilterClear={handleClearChampionFilter}
         />
-        <Menu />
+        <Menu onAddMatchClick={handleOpenAddMatchDialog} />
       </HorizontalBar>
       <MatchListProvider
         data={matchListData}
@@ -152,7 +151,6 @@ const Home = () => {
         pageIndex={pageIndex}
         onDeleteMatchClick={handleOpenDeleteMatchDialog}
       />
-      <AddMatchButton onClick={handleOpenAddMatchDialog} />
       <DeleteMatchDialog
         open={openDeleteMatchDialog}
         onClose={handleCloseDeleteMatchDialog}

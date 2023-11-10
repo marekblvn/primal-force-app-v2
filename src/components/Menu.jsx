@@ -1,5 +1,5 @@
 // components
-import { Divider, Stack, useTheme } from "@mui/material";
+import { IconButton, Stack, useTheme } from "@mui/material";
 import PopoverButton from "./PopoverButton";
 import LanguageSelector from "./LanguageSelector";
 import Lsi from "./Lsi";
@@ -12,12 +12,13 @@ import PersonIcon from "@mui/icons-material/Person";
 import FaceIcon from "@mui/icons-material/Face";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
+import NoteAddIcon from "@mui/icons-material/NoteAdd";
 // contexts
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { useDeleteMode, useScope } from "../contexts";
 
-const Menu = () => {
+const Menu = ({ onAddMatchClick }) => {
   const { logout } = useAuth0();
   const navigate = useNavigate();
   const theme = useTheme();
@@ -26,10 +27,27 @@ const Menu = () => {
   return (
     <Stack
       direction="row"
-      justifyContent="space-evenly"
+      justifyContent="center"
       alignItems="center"
       spacing={{ xs: "4px", sm: "8px" }}
     >
+      <TooltipedButton
+        color={theme.palette.white.main}
+        hoverColor={theme.palette.white.main}
+        icon={
+          <NoteAddIcon
+            sx={{
+              width: { xs: "18px", sm: "24px" },
+              height: { xs: "18px", sm: "24px" },
+            }}
+          />
+        }
+        tooltipText={
+          <Lsi lsi={{ en: "Add new match", cs: "Přidat nový zápas" }} />
+        }
+        tooltipPos="bottom"
+        onClick={onAddMatchClick}
+      />
       <PopoverButton
         icon={
           <PersonIcon
@@ -52,9 +70,6 @@ const Menu = () => {
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
-        />
-        <Divider
-          sx={{ background: theme.palette.secondary.light, width: "105%" }}
         />
         <TooltipedButton
           icon={
@@ -100,9 +115,6 @@ const Menu = () => {
         />
         {hasScope("delete:match") && (
           <>
-            <Divider
-              sx={{ background: theme.palette.secondary.light, width: "105%" }}
-            />
             <TooltipedButton
               icon={
                 deleteMode ? (
@@ -135,9 +147,6 @@ const Menu = () => {
             />
           </>
         )}
-        <Divider
-          sx={{ background: theme.palette.secondary.light, width: "105%" }}
-        />
         <LanguageSelector />
       </PopoverButton>
     </Stack>
