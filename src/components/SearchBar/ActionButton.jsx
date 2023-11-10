@@ -9,8 +9,8 @@ const ActionButton = ({ icon, borderRadius, onClick, hidden }) => {
       sx={{
         visibility: hidden ? "hidden" : "visible",
         backgroundColor: theme.palette.white.main,
-        width: { xs: width > 400 ? "31px" : "24px", sm: "44px" },
-        height: { xs: width > 400 ? "31px" : "24px", sm: "44px" },
+        width: { xs: width >= 400 ? "31px" : "24px", sm: "44px" },
+        height: { xs: width >= 400 ? "31px" : "24px", sm: "44px" },
         margin: 0,
         borderRadius: borderRadius,
         color: theme.palette.primary.main,
