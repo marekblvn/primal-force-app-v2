@@ -15,7 +15,7 @@ const HelperText = ({ children, error }) => {
       <Typography
         fontFamily="Red Hat Display, sans-serif"
         fontSize="12px"
-        color="red"
+        color="red !important"
       >
         {children}
       </Typography>

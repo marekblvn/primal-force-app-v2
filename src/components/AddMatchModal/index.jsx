@@ -39,8 +39,8 @@ const AddMatchModal = ({ open, onClose, onConfirm, loading }) => {
       setInputError(
         <Lsi
           lsi={{
-            en: "Game Id must be a number.",
-            cs: "Id zápasu musí být číslo.",
+            en: "Game Id must be an integer.",
+            cs: "Id zápasu musí být celé číslo.",
           }}
         />
       );
