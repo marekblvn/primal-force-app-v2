@@ -26,8 +26,9 @@ const MatchHeaderCenter = ({
     <Stack direction="column">
       <Typography
         fontSize={{ xs: "10px", lg: "12px" }}
-        fontWeight={"11px"}
+        fontWeight={600}
         textAlign={"center"}
+        fontFamily="Red Hat Display, sans-serif"
       >
         {gameCreated}
       </Typography>
@@ -60,8 +61,9 @@ const MatchHeaderCenter = ({
       </Stack>
       <Typography
         fontSize={{ xs: "10px", s: "12px", sm: "14px", md: "16px", lg: "18px" }}
-        fontWeight={800}
+        fontWeight={700}
         textAlign={"center"}
+        fontFamily="Red Hat Display, sans-serif"
       >
         {gameMinutes + ":" + gameSeconds}
       </Typography>
