@@ -42,7 +42,7 @@ const Logo = () => {
         <Typography
           sx={{
             fontFamily: "K2D, sans-serif",
-            fontSize: { xs: "28px", sm: "40px" },
+            fontSize: { md: "32px", lg: "40px" },
             textAlign: "center",
             verticalAlign: "middle",
           }}

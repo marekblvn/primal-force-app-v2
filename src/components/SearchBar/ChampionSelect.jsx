@@ -7,16 +7,19 @@ import {
   Stack,
   Input,
   Tooltip,
+  Box,
 } from "@mui/material";
 import ChampionIcon from "../ChampionIcon";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import Lsi from "../Lsi";
 import champions from "../../static/data/champions.json";
+import championIcon from "../../static/img/icons/lol-ui/champion-icon.svg";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
   const { width } = useWindowDimensions();
-  const selectToScreenProportion = 0.45;
+  const selectToScreenProportion = width >= 400 ? 0.45 : 0.35;
+  const selectWidth = width >= 400 ? 0.8 : 0.6;
   const championIconSize = width >= 600 ? 32 : 18; //px
   const maxGallerySize =
     Math.floor(
@@ -26,7 +29,7 @@ const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
   return (
     <Select
       sx={{
-        width: "80%",
+        width: `${selectWidth * 100}%`,
         "& .MuiSvgIcon-root": {
           color: theme.palette.secondary.light,
         },
@@ -34,7 +37,6 @@ const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
       SelectDisplayProps={{
         style: {
           height: width >= 600 ? "36px" : width >= 400 ? "12px" : "8px",
-          minWidth: "75px",
         },
       }}
       IconComponent={KeyboardArrowDownIcon}
@@ -60,13 +62,13 @@ const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
           // height: { xs: width > 400 ? "12px" : "8px", sm: "36px" },
           height: width >= 600 ? "36px" : width >= 400 ? "12px" : "8px",
           "&:focus": {
-            borderRadius: 0,
+            borderRadius: championFilter.length ? "0 0 0 0" : "0 8px 8px 0",
           },
         },
       }}
       renderValue={(selected) => {
         if (!selected.length) {
-          return (
+          return width >= 500 ? (
             <Typography
               paddingLeft="6px"
               paddingRight="32px"
@@ -74,11 +76,22 @@ const ChampionSelect = ({ championFilter, onChampionFilterChange }) => {
               fontFamily="Red Hat Display, sans-serif"
               fontStyle="italic"
               fontSize={{ xs: "11px", sm: "16px" }}
+              maxWidth={width >= 400 ? "139px" : "90px"}
             >
               <Lsi
                 lsi={{ en: "Select champions...", cs: "Vyber šampiony..." }}
               />
             </Typography>
+          ) : (
+            <Stack direction="row" width="100%" justifyContent="center">
+              <Box
+                component="img"
+                alt="champion"
+                src={championIcon}
+                width="18px"
+                height="18px"
+              />
+            </Stack>
           );
         }
         return (
