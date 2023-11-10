@@ -58,6 +58,7 @@ const MatchList = ({ itemList, onMatchDeleteClick }) => {
         alignItems: "center",
       }}
       disableGutters={true}
+      maxWidth="xl"
     >
       {renderMatches(itemList)}
     </Container>
