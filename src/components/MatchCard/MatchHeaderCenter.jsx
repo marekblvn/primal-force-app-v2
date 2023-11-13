@@ -25,7 +25,7 @@ const MatchHeaderCenter = ({
   return (
     <Stack direction="column">
       <Typography
-        fontSize={{ xs: "10px", lg: "12px" }}
+        fontSize={{ xs: "10px", lg: "12px", xl: "16px" }}
         fontWeight={600}
         textAlign={"center"}
         fontFamily="Red Hat Display, sans-serif"
@@ -39,7 +39,13 @@ const MatchHeaderCenter = ({
         spacing="2px"
       >
         <Typography
-          fontSize={{ xs: "14px", sm: "18px", md: "20px", lg: "24px" }}
+          fontSize={{
+            xs: "14px",
+            sm: "18px",
+            md: "20px",
+            lg: "24px",
+            xl: "32px",
+          }}
           fontFamily="Poppins, sans-serif"
           color={theme.palette.blue.main}
           fontWeight={800}
@@ -51,7 +57,13 @@ const MatchHeaderCenter = ({
           size={largeScreen ? "large" : mediumScreen ? "medium" : "small"}
         />
         <Typography
-          fontSize={{ xs: "14px", sm: "18px", md: "20px", lg: "24px" }}
+          fontSize={{
+            xs: "14px",
+            sm: "18px",
+            md: "20px",
+            lg: "24px",
+            xl: "32px",
+          }}
           fontFamily="Poppins, sans-serif"
           color={theme.palette.red.main}
           fontWeight={800}
@@ -60,7 +72,14 @@ const MatchHeaderCenter = ({
         </Typography>
       </Stack>
       <Typography
-        fontSize={{ xs: "10px", s: "12px", sm: "14px", md: "16px", lg: "18px" }}
+        fontSize={{
+          xs: "10px",
+          s: "12px",
+          sm: "14px",
+          md: "16px",
+          lg: "18px",
+          xl: "24px",
+        }}
         fontWeight={700}
         textAlign={"center"}
         fontFamily="Red Hat Display, sans-serif"
