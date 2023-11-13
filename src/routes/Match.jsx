@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import HorizontalBar from "../components/HorizontalBar";
 import useGetCommand from "../hooks/useGetCommand";
 import { matchGet } from "../services/primal-force-api/match-service";
+import MatchDetailProvider from "../components/MatchDetailProvider";
 
 const Match = () => {
   const { matchId } = useParams();
@@ -14,7 +15,7 @@ const Match = () => {
   return (
     <>
       <HorizontalBar />
-      {/* MatchDetailProvider */}
+      <MatchDetailProvider data={data} error={error} loading={loading} />
     </>
   );
 };
