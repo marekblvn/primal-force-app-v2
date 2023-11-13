@@ -19,7 +19,7 @@ const BanList = ({ bans = [], team }) => {
     >
       <Stack
         direction={team === "blue" ? "row" : "row-reverse"}
-        spacing="2px"
+        spacing={{ xs: "2px", sm: "4px", md: "8px", lg: "12px", xl: "16px" }}
         alignItems="center"
       >
         <Box
