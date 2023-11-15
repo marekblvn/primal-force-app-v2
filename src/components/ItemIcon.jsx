@@ -10,7 +10,7 @@ const ItemIcon = ({ itemId, ...props }) => {
       alt=""
       src={baseCdnUri + itemId + ".png"}
       border={`2px solid ${theme.palette.secondary.main}`}
-      borderRadius="8px"
+      borderRadius={{ xs: 0, md: "4px" }}
       {...props}
     />
   ) : (
@@ -19,7 +19,7 @@ const ItemIcon = ({ itemId, ...props }) => {
       {...props}
       sx={{ opacity: 0.8 }}
       border={`2px solid ${theme.palette.secondary.main}`}
-      borderRadius="8px"
+      borderRadius={{ xs: 0, md: "4px" }}
       bgcolor={theme.palette.white.dark}
     />
   );
