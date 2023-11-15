@@ -25,7 +25,7 @@ const TeamGold = ({ gold, team }) => {
       >
         <GoldIcon />
         <Typography
-          fontSize={{ xs: "10px", md: "12px", lg: "14px" }}
+          fontSize={{ xs: "10px", md: "14px", lg: "16px", xl: "20px" }}
           fontWeight={600}
         >
           {formattedGold}

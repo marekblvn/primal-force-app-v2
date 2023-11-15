@@ -27,15 +27,13 @@ const MatchCard = ({ match, onDeleteClick }) => {
         elevation={3}
         sx={{
           backgroundColor: victory
-            ? theme.palette.matchFill.green
-            : theme.palette.matchFill.red,
+            ? theme.palette.green.light
+            : theme.palette.red.light,
           width: "auto",
           height: "auto",
           padding: { xs: "4px", md: "16px" },
           border: `solid 3px ${
-            victory
-              ? theme.palette.matchBorder.green
-              : theme.palette.matchBorder.red
+            victory ? theme.palette.green.dark : theme.palette.red.dark
           }`,
           "&:hover": {
             cursor: "pointer",

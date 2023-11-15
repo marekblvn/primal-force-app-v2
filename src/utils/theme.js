@@ -8,9 +8,8 @@ const theme = createTheme({
     white: { main: "#F5F5F5", dark: "#D3D3D3" },
     black: { main: "#191919" },
     blue: { main: "#0A96AA" },
-    red: { main: "#BE1E37" },
-    matchBorder: { green: "#1aa31a", red: "#d63333" },
-    matchFill: { green: "#E1EEE1", red: "#F2E3E3" },
+    red: { main: "#BE1E37", light: "#F2E3E3", dark: "#D63333" },
+    green: { dark: "#1AA31A", light: "#E1EEE1" },
   },
   breakpoints: {
     values: {
