@@ -12,6 +12,7 @@ const TeamName = ({ side, ...props }) => {
       fontFamily="Poppins, sans-serif"
       color={side === "blue" ? theme.palette.blue.main : theme.palette.red.main}
       fontWeight={600}
+      fontSize={{ xs: "12px", sm: "14px", md: "18px" }}
       {...props}
     >
       <Lsi

@@ -23,7 +23,7 @@ const TeamTable = ({ participants, side }) => {
       xs={12}
       md={6}
       columns={12}
-      sx={{ paddingBottom: "8px" }}
+      sx={{ paddingBottom: { xs: "2px", sm: "4px", md: "8px" } }}
     >
       <Grid
         item
@@ -32,13 +32,14 @@ const TeamTable = ({ participants, side }) => {
         xs={12}
       >
         <Grid item xs={2}></Grid>
-        <Grid item xs={1} md={2} lg={1}>
+        <Grid item xs={width >= 400 ? 2 : 1} sm={2} md={1} xl={2}></Grid>
+        <Grid item xs={1} md={2} xl={2}>
           <Typography
             fontFamily="Red Hat Display, sans-serif"
-            textAlign="center"
+            textAlign={{ xs: "right", sm: "center" }}
             fontSize={{
               xs: width >= 350 ? "10px" : "7px",
-              sm: width >= 700 ? "16px" : "12px",
+              sm: width >= 700 ? "14px" : "12px",
               md: width >= 1100 ? "14px" : "12px",
               lg: width >= 1400 ? "15px" : "12px",
               xl: "20px",
@@ -53,7 +54,7 @@ const TeamTable = ({ participants, side }) => {
             textAlign={{ xs: "right", sm: "center" }}
             fontSize={{
               xs: width >= 350 ? "10px" : "7px",
-              sm: width >= 700 ? "16px" : "12px",
+              sm: width >= 700 ? "14px" : "12px",
               md: width >= 1100 ? "14px" : "12px",
               lg: width >= 1400 ? "15px" : "12px",
               xl: "20px",
@@ -62,34 +63,19 @@ const TeamTable = ({ participants, side }) => {
             <Lsi lsi={{ en: "CS", cs: "CS" }} />
           </Typography>
         </Grid>
-        <Grid item xs={7} sm={6}>
+        <Grid item xs={width >= 400 ? 6 : 7} sm={6} xl={5}>
           <Typography
             fontFamily="Red Hat Display, sans-serif"
             textAlign="center"
             fontSize={{
               xs: width >= 350 ? "10px" : "7px",
-              sm: "14px",
+              sm: "12px",
               md: width >= 1100 ? "14px" : "12px",
               lg: width >= 1400 ? "15px" : "12px",
               xl: "20px",
             }}
           >
             <Lsi lsi={{ en: "Items", cs: "Předměty" }} />
-          </Typography>
-        </Grid>
-        <Grid item xs={1} sm={2} md={1} lg={2}>
-          <Typography
-            fontFamily="Red Hat Display, sans-serif"
-            textAlign="center"
-            fontSize={{
-              xs: width >= 350 ? "10px" : "7px",
-              sm: width >= 700 ? "16px" : "12px",
-              md: width >= 1100 ? "14px" : "12px",
-              lg: width >= 1400 ? "15px" : "12px",
-              xl: "20px",
-            }}
-          >
-            <Lsi lsi={{ en: "Gold", cs: "Zlato" }} />
           </Typography>
         </Grid>
       </Grid>
@@ -197,18 +183,42 @@ const TeamTable = ({ participants, side }) => {
           </Grid>
           <Grid
             item
-            xs={1}
-            md={2}
-            lg={1}
+            xs={width >= 400 ? 2 : 1}
+            sm={2}
+            md={1}
+            xl={2}
             display="flex"
-            justifyContent="center"
+            justifyContent={{ xs: "flex-start", sm: "center" }}
             alignItems="center"
           >
             <Typography
-              textAlign="center"
+              textAlign={{ xs: "left", sm: "center" }}
+              noWrap
+              maxWidth={{ xs: width >= 450 ? "45px" : "90%", sm: "100%" }}
+              fontSize={{
+                xs: width >= 400 ? "8px" : "6px",
+                sm: width >= 700 ? "10px" : "9px",
+                lg: "12px",
+                xl: "16px",
+              }}
+            >
+              {p.summonerName}
+            </Typography>
+          </Grid>
+          <Grid
+            item
+            xs={1}
+            md={2}
+            xl={2}
+            display="flex"
+            justifyContent={{ xs: "flex-end", sm: "center" }}
+            alignItems="center"
+          >
+            <Typography
+              textAlign={{ xs: "right", sm: "center" }}
               fontSize={{
                 xs: width >= 400 ? "10px" : "6px",
-                sm: width >= 700 ? "16px" : "12px",
+                sm: width >= 700 ? "14px" : "12px",
                 md: width >= 1100 ? "16px" : "14px",
                 lg: width >= 1400 ? "15px" : "12px",
                 xl: "20px",
@@ -228,7 +238,7 @@ const TeamTable = ({ participants, side }) => {
               textAlign={{ xs: "right", sm: "center" }}
               fontSize={{
                 xs: width >= 400 ? "10px" : "6px",
-                sm: width >= 700 ? "16px" : "12px",
+                sm: width >= 700 ? "14px" : "12px",
                 md: width >= 1100 ? "16px" : "14px",
                 lg: width >= 1400 ? "15px" : "13px",
                 xl: "20px",
@@ -239,8 +249,9 @@ const TeamTable = ({ participants, side }) => {
           </Grid>
           <Grid
             item
-            xs={7}
+            xs={width >= 400 ? 6 : 7}
             sm={6}
+            xl={5}
             display="flex"
             justifyContent="center"
             alignItems="center"
@@ -389,31 +400,6 @@ const TeamTable = ({ participants, side }) => {
                 />
               </Badge>
             </Stack>
-          </Grid>
-          <Grid
-            item
-            xs={1}
-            sm={2}
-            md={1}
-            lg={2}
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Typography
-              textAlign="center"
-              fontSize={{
-                xs: width >= 400 ? "10px" : "6px",
-                sm: width >= 700 ? "16px" : "12px",
-                md: width >= 1100 ? "16px" : "14px",
-                lg: width >= 1400 ? "15px" : "13px",
-                xl: "20px",
-              }}
-            >
-              {(width <= 1200 && width >= 900) || width <= 600
-                ? (p.goldEarned / 1000).toFixed(1) + "k"
-                : goldFormat.format(p.goldEarned)}
-            </Typography>
           </Grid>
         </Grid>
       ))}
