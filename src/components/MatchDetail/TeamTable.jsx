@@ -7,6 +7,8 @@ import ItemIcon from "../ItemIcon";
 import { useLsi } from "../../contexts";
 import PerkIcon from "../PerkIcon";
 
+// TODO: Remove Gold column, add name column !! summonerName is more important and there is not enough place for both
+
 const TeamTable = ({ participants, side }) => {
   const { width } = useWindowDimensions();
   const theme = useTheme();
@@ -409,8 +411,7 @@ const TeamTable = ({ participants, side }) => {
               }}
             >
               {(width <= 1200 && width >= 900) || width <= 600
-                ? (p.goldEarned / 1000).toFixed(1) +
-                  (language === "en" ? "k" : " tis.")
+                ? (p.goldEarned / 1000).toFixed(1) + "k"
                 : goldFormat.format(p.goldEarned)}
             </Typography>
           </Grid>
