@@ -61,8 +61,9 @@ const GoldBarChart = ({ matchId }) => {
           x={x + width / 2}
           y={y - 8}
           fill={`${fill}`}
-          fontWeight={600}
+          fontWeight={500}
           textAnchor="middle"
+          fontFamily="Red Hat Display, sans-serif"
           fontSize={
             screenWidth > 1440
               ? "16px"

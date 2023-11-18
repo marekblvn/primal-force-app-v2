@@ -18,12 +18,15 @@ const Charts = ({ matchId }) => {
   return (
     <Grid container paddingTop="4px">
       <Grid item xs={12} md={6}>
-        <Stack direction="column">
+        <Stack
+          direction="column"
+          paddingBottom={{ xs: "4px", sm: "16px", md: 0 }}
+        >
           <Stack
             direction="row"
             alignItems="center"
             spacing="8px"
-            paddingBottom="12px"
+            paddingBottom={{ xs: "4px", sm: "6px", md: "12px" }}
           >
             <GoldIcon />
             <Typography
@@ -43,7 +46,7 @@ const Charts = ({ matchId }) => {
             direction="row"
             alignItems="center"
             spacing="8px"
-            paddingBottom="12px"
+            paddingBottom={{ xs: "4px", sm: "6px", md: "12px" }}
           >
             <DamageIcon
               color="#785A28"

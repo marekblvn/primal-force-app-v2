@@ -217,9 +217,10 @@ const DamageBarChart = ({ matchId }) => {
         <text
           x={x + width / 2}
           y={y - 8}
-          fill={`#000`}
-          fontWeight={600}
+          fill={theme.palette.black.main}
+          fontWeight={400}
           textAnchor="middle"
+          fontFamily="Red Hat Display, sans-serif"
           fontSize={
             screenWidth > 1440
               ? "16px"
