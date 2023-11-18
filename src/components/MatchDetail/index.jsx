@@ -4,6 +4,8 @@ import MatchResult from "./MatchResult";
 import TeamTable from "./TeamTable";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Lsi from "../Lsi";
+import GoldBarChart from "./GoldBarChart";
+import Charts from "./Charts";
 
 const TeamName = ({ side, ...props }) => {
   const theme = useTheme();
@@ -67,6 +69,7 @@ const MatchDetail = ({ match }) => {
           <TeamTable participants={redParticipants} side={"red"} />
         </Stack>
         {/* TeamDetails */}
+        <Charts matchId={match._id} />
       </Paper>
     </Container>
   );

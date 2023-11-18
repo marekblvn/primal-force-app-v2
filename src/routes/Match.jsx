@@ -10,11 +10,9 @@ import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
 import PopoverButton from "../components/PopoverButton";
 import Lsi from "../components/Lsi";
-import { useTheme } from "@emotion/react";
 
 const Match = () => {
-  const theme = useTheme();
-  const { navigate } = useNavigate();
+  const navigate = useNavigate();
   const { matchId } = useParams();
   const { data, loading, error } = useGetCommand({
     command: matchGet,

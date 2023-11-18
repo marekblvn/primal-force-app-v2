@@ -7,7 +7,7 @@ const theme = createTheme({
     warning: { main: "#F99417", dark: "#c77612" },
     white: { main: "#F5F5F5", dark: "#D3D3D3" },
     black: { main: "#191919" },
-    blue: { main: "#0A96AA" },
+    blue: { main: "#0A96AA", dark: "#076977" },
     red: { main: "#BE1E37", light: "#F2E3E3", dark: "#D63333" },
     green: { dark: "#1AA31A", light: "#E1EEE1" },
   },

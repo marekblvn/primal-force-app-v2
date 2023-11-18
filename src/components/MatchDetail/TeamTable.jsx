@@ -4,18 +4,11 @@ import Lsi from "../Lsi";
 import ChampionIcon from "../ChampionIcon";
 import SummonerSpellIcon from "../SummonerSpellIcon";
 import ItemIcon from "../ItemIcon";
-import { useLsi } from "../../contexts";
 import PerkIcon from "../PerkIcon";
-
-// TODO: Remove Gold column, add name column !! summonerName is more important and there is not enough place for both
 
 const TeamTable = ({ participants, side }) => {
   const { width } = useWindowDimensions();
   const theme = useTheme();
-  const { language } = useLsi();
-  const goldFormat = new Intl.NumberFormat(
-    language === "en" ? "en-GB" : "cs-CZ"
-  );
   return (
     <Grid
       item
