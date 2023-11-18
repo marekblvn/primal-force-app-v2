@@ -70,6 +70,7 @@ const Menu = ({ onAddMatchClick }) => {
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
+          onClick={() => navigate("/profile")}
         />
         <TooltipedButton
           icon={
