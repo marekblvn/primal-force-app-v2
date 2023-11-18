@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
-import FaceIcon from "@mui/icons-material/Face";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
