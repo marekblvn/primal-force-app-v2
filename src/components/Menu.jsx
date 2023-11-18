@@ -1,5 +1,5 @@
 // components
-import { IconButton, Stack, useTheme } from "@mui/material";
+import { Box, IconButton, Stack, useTheme } from "@mui/material";
 import PopoverButton from "./PopoverButton";
 import LanguageSelector from "./LanguageSelector";
 import Lsi from "./Lsi";
@@ -16,14 +16,15 @@ import NoteAddIcon from "@mui/icons-material/NoteAdd";
 // contexts
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-import { useDeleteMode, useScope } from "../contexts";
+import { useDeleteMode, useScope, useUserDetails } from "../contexts";
 
-const Menu = ({ onAddMatchClick }) => {
+const Menu = ({ onAddMatchClick, addMatchDialogOpen }) => {
   const { logout } = useAuth0();
   const navigate = useNavigate();
   const theme = useTheme();
   const { deleteMode, toggleDeleteMode } = useDeleteMode();
   const { hasScope } = useScope();
+  const { picture } = useUserDetails();
   return (
     <Stack
       direction="row"
@@ -32,7 +33,11 @@ const Menu = ({ onAddMatchClick }) => {
       spacing={{ xs: "4px", sm: "8px" }}
     >
       <TooltipedButton
-        color={theme.palette.white.main}
+        color={
+          addMatchDialogOpen
+            ? theme.palette.secondary.light
+            : theme.palette.white.main
+        }
         hoverColor={theme.palette.white.main}
         icon={
           <NoteAddIcon
@@ -60,7 +65,10 @@ const Menu = ({ onAddMatchClick }) => {
       >
         <TooltipedButton
           icon={
-            <FaceIcon
+            <Box
+              component="img"
+              alt="profile"
+              src={picture}
               sx={{
                 width: { xs: "18px", sm: "24px" },
                 height: { xs: "18px", sm: "24px" },

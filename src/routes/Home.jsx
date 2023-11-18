@@ -141,7 +141,10 @@ const Home = () => {
           onChampionFilterChange={handleChangeChampionFilter}
           onChampionFilterClear={handleClearChampionFilter}
         />
-        <Menu onAddMatchClick={handleOpenAddMatchDialog} />
+        <Menu
+          onAddMatchClick={handleOpenAddMatchDialog}
+          addMatchDialogOpen={openAddMatchDialog}
+        />
       </HorizontalBar>
       <MatchListProvider
         data={matchListData}
