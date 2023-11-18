@@ -11,6 +11,7 @@ import theme from "./utils/theme";
 import TokenProvider from "./contexts/token/token-provider";
 import SnackbarProvider from "./contexts/snackbar/snackbar-provider";
 import ScopeProvider from "./contexts/scope/scope-provider";
+import UserDetailsProvider from "./contexts/user-detail/user-details-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,16 +26,21 @@ root.render(
               redirect_uri: window.location.origin,
               audience: process.env.REACT_APP_PMF_API_URL,
               scope:
-                "openid profile email read:match delete:match create:match",
+                "openid profile email read:current_user read:match delete:match create:match",
             }}
           >
             <TokenProvider
               audience={process.env.REACT_APP_PMF_API_URL}
               scope="read:match delete:match create:match"
             >
-              <ScopeProvider>
-                <App />
-              </ScopeProvider>
+              <UserDetailsProvider
+                audience={`https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/`}
+                scope="read:current_user"
+              >
+                <ScopeProvider>
+                  <App />
+                </ScopeProvider>
+              </UserDetailsProvider>
             </TokenProvider>
           </Auth0Provider>
         </SnackbarProvider>
