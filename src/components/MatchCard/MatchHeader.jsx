@@ -12,7 +12,7 @@ const MatchHeader = ({ gameCreation, gameDuration, teams }) => {
         objectives={blueTeamData.objectives}
         teamGold={blueTeamData.goldEarned}
         bans={blueTeamData.bans}
-        team="blue"
+        teamId={100}
       />
       <MatchHeaderCenter
         gameCreation={gameCreation}
@@ -24,7 +24,7 @@ const MatchHeader = ({ gameCreation, gameDuration, teams }) => {
         objectives={redTeamData.objectives}
         teamGold={redTeamData.goldEarned}
         bans={redTeamData.bans}
-        team="red"
+        teamId={200}
       />
     </Stack>
   );

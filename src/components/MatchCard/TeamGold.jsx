@@ -3,7 +3,7 @@ import { GoldIcon } from "../Icons";
 import { useLsi } from "../../contexts";
 import Lsi from "../Lsi";
 
-const TeamGold = ({ gold, team }) => {
+const TeamGold = ({ gold, teamId }) => {
   const { language } = useLsi();
   const formattedGold = new Intl.NumberFormat(
     language === "en" ? "en-GB" : "cs-CZ"
@@ -11,17 +11,22 @@ const TeamGold = ({ gold, team }) => {
   return (
     <Tooltip
       title={
-        <Lsi lsi={{ en: `${team === "blue" ? "Blue" : "Red"} team gold` }} />
+        <Lsi
+          lsi={{
+            en: `${teamId === 100 ? "Blue" : "Red"} team gold`,
+            cs: `Zlato ${teamId === 100 ? "modrého" : "červeného"} týmu`,
+          }}
+        />
       }
-      placement={team === "blue" ? "right" : "left"}
+      placement={teamId === 100 ? "right" : "left"}
       arrow
     >
       <Stack
-        direction={team === "blue" ? "row" : "row-reverse"}
-        justifyContent={team === "blue" ? "flex-start" : "flex-end"}
+        direction={teamId === 100 ? "row" : "row-reverse"}
+        justifyContent={teamId === 100 ? "flex-start" : "flex-end"}
         alignItems="center"
         spacing="4px"
-        padding={team === "blue" ? "0 0 0 4px" : "0 4px 0 0"}
+        padding={teamId === 100 ? "0 0 0 4px" : "0 4px 0 0"}
       >
         <GoldIcon />
         <Typography

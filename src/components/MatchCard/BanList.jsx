@@ -3,22 +3,22 @@ import icon from "../../static/img/icons/lol-ui/ban.png";
 import Ban from "./Ban";
 import Lsi from "../Lsi";
 
-const BanList = ({ bans = [], team }) => {
+const BanList = ({ bans = [], teamId }) => {
   return (
     <Tooltip
       title={
         <Lsi
           lsi={{
-            en: `${team === "blue" ? "Blue" : "Red"} team bans`,
-            cs: `Bany ${team === "blue" ? "modrého" : "červeného"} týmu`,
+            en: `${teamId === 100 ? "Blue" : "Red"} team bans`,
+            cs: `Bany ${teamId === 100 ? "modrého" : "červeného"} týmu`,
           }}
         />
       }
-      placement={team === "blue" ? "right" : "left"}
+      placement={teamId === 100 ? "right" : "left"}
       arrow
     >
       <Stack
-        direction={team === "blue" ? "row" : "row-reverse"}
+        direction={teamId === 100 ? "row" : "row-reverse"}
         spacing={{ xs: "2px", sm: "4px", md: "8px", lg: "12px", xl: "16px" }}
         alignItems="center"
       >

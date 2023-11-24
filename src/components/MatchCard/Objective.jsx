@@ -7,44 +7,44 @@ import {
   TowerIcon,
 } from "../Icons";
 
-const Objective = ({ type, data, team }) => {
+const Objective = ({ type, data, teamId }) => {
   const direction = {
-    blue: type === "champion" ? "row-reverse" : "row",
-    red: type === "champion" ? "row" : "row-reverse",
+    100: type === "champion" ? "row-reverse" : "row",
+    200: type === "champion" ? "row" : "row-reverse",
   };
   const { kills, first } = data;
   const objectiveIcons = {
     baron: (
       <BaronIcon
-        team={team}
+        teamId={teamId}
         width={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
         height={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
       />
     ),
     dragon: (
       <DragonIcon
-        team={team}
+        teamId={teamId}
         width={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
         height={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
       />
     ),
     tower: (
       <TowerIcon
-        team={team}
+        teamId={teamId}
         width={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
         height={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
       />
     ),
     riftHerald: (
       <HeraldIcon
-        team={team}
+        teamId={teamId}
         width={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
         height={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
       />
     ),
     inhibitor: (
       <InhibitorIcon
-        team={team}
+        teamId={teamId}
         width={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
         height={{ xs: "12px", sm: "16px", md: "20px", lg: "24px" }}
       />
@@ -53,7 +53,7 @@ const Objective = ({ type, data, team }) => {
   return (
     <Box
       display="flex"
-      flexDirection={{ xs: "column", s: direction[team] }}
+      flexDirection={{ xs: "column", s: direction[teamId] }}
       justifyContent="center"
       alignItems="center"
       gap={{ xs: "2px", s: "4px" }}
