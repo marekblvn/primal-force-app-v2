@@ -15,15 +15,14 @@ import NoteAddIcon from "@mui/icons-material/NoteAdd";
 // contexts
 import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
-import { useDeleteMode, useScope, useUserDetails } from "../contexts";
+import { useDeleteMode, useScope } from "../contexts";
 
 const Menu = ({ onAddMatchClick, addMatchDialogOpen }) => {
-  const { logout } = useAuth0();
+  const { logout, user } = useAuth0();
   const navigate = useNavigate();
   const theme = useTheme();
   const { deleteMode, toggleDeleteMode } = useDeleteMode();
   const { hasScope } = useScope();
-  const { picture } = useUserDetails();
   return (
     <Stack
       direction="row"
@@ -67,7 +66,7 @@ const Menu = ({ onAddMatchClick, addMatchDialogOpen }) => {
             <Box
               component="img"
               alt="profile"
-              src={picture}
+              src={user.picture}
               sx={{
                 width: { xs: "18px", sm: "24px" },
                 height: { xs: "18px", sm: "24px" },

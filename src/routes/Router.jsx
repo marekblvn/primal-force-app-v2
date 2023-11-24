@@ -15,10 +15,10 @@ const Router = createBrowserRouter([
     element: <Match />,
     errorElement: <NotFound />,
   },
-  {
-    path: "/profile",
-    element: <Profile />,
-  },
+  // {
+  //   path: "/profile",
+  //   element: <Profile />,
+  // },
   {
     path: "/about",
     element: <About />,

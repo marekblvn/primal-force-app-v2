@@ -11,7 +11,6 @@ import theme from "./utils/theme";
 import TokenProvider from "./contexts/token/token-provider";
 import SnackbarProvider from "./contexts/snackbar/snackbar-provider";
 import ScopeProvider from "./contexts/scope/scope-provider";
-import UserDetailsProvider from "./contexts/user-detail/user-details-provider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -33,14 +32,9 @@ root.render(
               audience={process.env.REACT_APP_PMF_API_URL}
               scope="read:match delete:match create:match"
             >
-              <UserDetailsProvider
-                audience={`https://${process.env.REACT_APP_AUTH0_DOMAIN}/api/v2/`}
-                scope="read:current_user"
-              >
-                <ScopeProvider>
-                  <App />
-                </ScopeProvider>
-              </UserDetailsProvider>
+              <ScopeProvider>
+                <App />
+              </ScopeProvider>
             </TokenProvider>
           </Auth0Provider>
         </SnackbarProvider>
