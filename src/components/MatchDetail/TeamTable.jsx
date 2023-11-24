@@ -5,10 +5,12 @@ import ChampionIcon from "../ChampionIcon";
 import SummonerSpellIcon from "../SummonerSpellIcon";
 import ItemIcon from "../ItemIcon";
 import PerkIcon from "../PerkIcon";
+import summonerNames from "../../static/data/summoners.json";
 
 const TeamTable = ({ participants, side }) => {
   const { width } = useWindowDimensions();
   const theme = useTheme();
+  const PMFParticipants = Object.values(summonerNames).flat();
   return (
     <Grid
       item
@@ -194,6 +196,7 @@ const TeamTable = ({ participants, side }) => {
                 lg: "12px",
                 xl: "16px",
               }}
+              fontWeight={PMFParticipants.includes(p.summonerName) ? 700 : 500}
             >
               {p.summonerName}
             </Typography>
