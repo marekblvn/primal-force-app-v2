@@ -25,7 +25,7 @@ root.render(
               redirect_uri: window.location.origin,
               audience: process.env.REACT_APP_PMF_API_URL,
               scope:
-                "openid profile email read:match delete:match create:match",
+                "openid profile email read:current_user read:match delete:match create:match",
             }}
           >
             <TokenProvider

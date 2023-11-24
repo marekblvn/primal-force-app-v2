@@ -1,5 +1,5 @@
 // components
-import { IconButton, Stack, useTheme } from "@mui/material";
+import { Box, IconButton, Stack, useTheme } from "@mui/material";
 import PopoverButton from "./PopoverButton";
 import LanguageSelector from "./LanguageSelector";
 import Lsi from "./Lsi";
@@ -9,7 +9,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import QuestionMarkIcon from "@mui/icons-material/QuestionMark";
 import LogoutIcon from "@mui/icons-material/Logout";
 import PersonIcon from "@mui/icons-material/Person";
-import FaceIcon from "@mui/icons-material/Face";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import DeleteIcon from "@mui/icons-material/Delete";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
@@ -18,8 +17,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 import { useDeleteMode, useScope } from "../contexts";
 
-const Menu = ({ onAddMatchClick }) => {
-  const { logout } = useAuth0();
+const Menu = ({ onAddMatchClick, addMatchDialogOpen }) => {
+  const { logout, user } = useAuth0();
   const navigate = useNavigate();
   const theme = useTheme();
   const { deleteMode, toggleDeleteMode } = useDeleteMode();
@@ -32,7 +31,11 @@ const Menu = ({ onAddMatchClick }) => {
       spacing={{ xs: "4px", sm: "8px" }}
     >
       <TooltipedButton
-        color={theme.palette.white.main}
+        color={
+          addMatchDialogOpen
+            ? theme.palette.secondary.light
+            : theme.palette.white.main
+        }
         hoverColor={theme.palette.white.main}
         icon={
           <NoteAddIcon
@@ -60,7 +63,10 @@ const Menu = ({ onAddMatchClick }) => {
       >
         <TooltipedButton
           icon={
-            <FaceIcon
+            <Box
+              component="img"
+              alt="profile"
+              src={user.picture}
               sx={{
                 width: { xs: "18px", sm: "24px" },
                 height: { xs: "18px", sm: "24px" },
@@ -69,6 +75,12 @@ const Menu = ({ onAddMatchClick }) => {
           }
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
+          }
+          // onClick={() => navigate("/profile")} TODO: Remove when user profile is working
+          onClick={() =>
+            alert(
+              "This function is currently being implemented. Sorry for the inconvenience."
+            )
           }
         />
         <TooltipedButton

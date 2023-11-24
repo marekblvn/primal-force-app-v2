@@ -4,6 +4,7 @@ import LsiContext from "./lsi/lsi-context";
 import TokenContext from "./token/token-context";
 import ScopeContext from "./scope/scope-context";
 import DeleteModeContext from "./delete-mode/delete-mode-context";
+import UserDetailsContext from "./user-detail/user-details-context";
 
 export const useChampionImages = () => {
   const championImageContext = useContext(ChampionImageContext);
@@ -28,4 +29,9 @@ export const useScope = () => {
 export const useDeleteMode = () => {
   const deleteModeContext = useContext(DeleteModeContext);
   return deleteModeContext;
+};
+
+export const useUserDetails = () => {
+  const userDetailsContext = useContext(UserDetailsContext);
+  return userDetailsContext;
 };
