@@ -76,7 +76,7 @@ const Menu = ({ onAddMatchClick, addMatchDialogOpen }) => {
           tooltipText={
             <Lsi lsi={{ en: "Go to my profile", cs: "Přejít na můj profil" }} />
           }
-          onClick={() => navigate("/profile")}
+          // onClick={() => navigate("/profile")} TODO: Remove when user profile is working
         />
         <TooltipedButton
           icon={
