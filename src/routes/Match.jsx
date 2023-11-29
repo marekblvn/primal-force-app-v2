@@ -6,8 +6,8 @@ import { matchGet } from "../services/primal-force-api/match-service";
 import MatchDetailProvider from "../components/MatchDetailProvider";
 import LanguageSelector from "../components/LanguageSelector";
 import { IconButton, Tooltip } from "@mui/material";
-import HomeIcon from "@mui/icons-material/Home";
 import MenuIcon from "@mui/icons-material/Menu";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import PopoverButton from "../components/PopoverButton";
 import Lsi from "../components/Lsi";
 
@@ -36,7 +36,7 @@ const Match = () => {
             placement="left"
           >
             <IconButton onClick={() => navigate("/")} color="secondary">
-              <HomeIcon />
+              <ExitToAppIcon />
             </IconButton>
           </Tooltip>
           <LanguageSelector />
