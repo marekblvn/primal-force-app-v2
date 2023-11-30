@@ -21,7 +21,7 @@ const Router = createBrowserRouter([
   // },
   {
     path: "/about",
-    element: <About />,
+    element: <NotFound />, //TODO: Change this when about page is added.
   },
   {
     path: "*",
