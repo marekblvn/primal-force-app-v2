@@ -19,16 +19,16 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import ChampionIconTick from "./ChampionIconTick";
 import { useLsi } from "../../contexts";
 import useGetCommand from "../../hooks/useGetCommand";
-import { gold } from "../../services/primal-force-api/chart-service";
+import { matchGetGold } from "../../services/primal-force-api/match-service";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import Lsi from "../Lsi";
 import ChampionIcon from "../ChampionIcon";
 
 const GoldBarChart = ({ matchId }) => {
   const { data, error, loading } = useGetCommand({
-    command: gold,
+    command: matchGetGold,
     skipInitial: false,
-    initialParams: { id: matchId },
+    initialParams: { matchId },
   });
   const theme = useTheme();
   const { language } = useLsi();
