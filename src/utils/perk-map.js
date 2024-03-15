@@ -1,7 +1,7 @@
 const perkImageMap = {
   8000: "7201_Precision.png",
   8005: "Precision/PressTheAttack/PressTheAttack.png",
-  8008: "Precision/LethalTempo/LethalTempo.png",
+  8008: "Precision/LethalTempo/LethalTempoTemp.png",
   8010: "Precision/Conqueror/Conqueror.png",
   8021: "Precision/FleetFootwork/FleetFootwork.png",
   8100: "7200_Domination.png",
