@@ -605,6 +605,11 @@
     "id": 72
   },
   {
+    "name": "Smolder",
+    "asset": "Smolder.png",
+    "id": 901
+  },
+  {
     "name": "Sona",
     "asset": "Sona.png",
     "id": 37
