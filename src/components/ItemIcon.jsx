@@ -1,6 +1,7 @@
 import { useTheme, Box } from "@mui/material";
+import config from "../static/data/config.json";
 
-const baseCdnUri = "http://ddragon.leagueoflegends.com/cdn/13.22.1/img/item/";
+const baseCdnUri = `${config.baseCdnUrl}${config.lolPatch}/img/item/`;
 
 const ItemIcon = ({ itemId, ...props }) => {
   const theme = useTheme();
