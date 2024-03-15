@@ -1,0 +1,26 @@
+const perkImageMap = {
+  8000: "7201_Precision.png",
+  8005: "Precision/PressTheAttack/PressTheAttack.png",
+  8008: "Precision/LethalTempo/LethalTempo.png",
+  8010: "Precision/Conqueror/Conqueror.png",
+  8021: "Precision/FleetFootwork/FleetFootwork.png",
+  8100: "7200_Domination.png",
+  8112: "Domination/Electrocute/Electrocute.png",
+  8124: "Domination/Predator/Predator.png",
+  8128: "Domination/DarkHarvest/DarkHarvest.png",
+  9923: "Domination/HailOfBlades/HailOfBlades.png",
+  8200: "7202_Sorcery.png",
+  8214: "Sorcery/SummonAery/SummonAery.png",
+  8229: "Sorcery/ArcaneComet/ArcaneComet.png",
+  8230: "Sorcery/PhaseRush/PhaseRush.png",
+  8300: "7203_Whimsy.png",
+  8351: "Inspiration/GlacialAugment/GlacialAugment.png",
+  8360: "Inspiration/UnsealedSpellbook/UnsealedSpellbook.png",
+  8369: "Inspiration/FirstStrike/FirstStrike.png",
+  8400: "7204_Resolve.png",
+  8437: "Resolve/GraspOfTheUndying/GraspOfTheUndying.png",
+  8439: "Resolve/VeteranAftershock/VeteranAftershock.png",
+  8465: "Resolve/Guardian/Guardian.png",
+};
+
+export default perkImageMap;
