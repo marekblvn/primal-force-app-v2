@@ -62,7 +62,7 @@ const Home = () => {
   };
 
   const handleSearch = () =>
-    getMatchList({ championNameList: championFilter, pageIndex });
+    getMatchList({ championNames: championFilter, pageIndex });
 
   const handleChangeChampionFilter = (e) => {
     const {
@@ -94,7 +94,7 @@ const Home = () => {
 
   const handleDeleteMatch = () => {
     postMatchDelete(
-      { id: matchIdToDelete },
+      { matchId: matchIdToDelete },
       handleDeleteMatchSuccess,
       renderErrorSnackbar
     );

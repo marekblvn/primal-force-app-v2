@@ -17,7 +17,7 @@ const Match = () => {
   const { data, loading, error } = useGetCommand({
     command: matchGet,
     skipInitial: false,
-    initialParams: { id: matchId },
+    initialParams: { matchId },
   });
   return (
     <>
