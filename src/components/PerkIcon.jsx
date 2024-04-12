@@ -1,10 +1,12 @@
 import { Box } from "@mui/material";
-
-const imgCdnUrl = process.env.REACT_APP_PMF_API_URL + "api/image/perk/";
+import perkImageMap from "../utils/perk-map";
+import config from "../static/data/config.json";
 
 const PerkIcon = ({ id, ...props }) => {
+  const perkImageName = perkImageMap[id];
+  const perkImageUrl = `${config.baseCdnUrl}img/perk-images/Styles/${perkImageName}`;
   return (
-    <Box component="img" alt="perk" src={imgCdnUrl + id + ".png"} {...props} />
+    <Box component="img" alt={perkImageName} src={perkImageUrl} {...props} />
   );
 };
 

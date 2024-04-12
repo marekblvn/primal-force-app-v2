@@ -13,8 +13,22 @@ export const matchList = ({ params, token }) => {
 };
 
 export const matchGet = ({ params, token }) => {
-  return api.get(route + "/get", {
-    params,
+  const { matchId } = params;
+  return api.get(route + `/get/${matchId}`, {
+    headers: { Authorization: "Bearer " + token },
+  });
+};
+
+export const matchGetGold = ({ params, token }) => {
+  const { matchId } = params;
+  return api.get(route + `/get/${matchId}/gold`, {
+    headers: { Authorization: "Bearer " + token },
+  });
+};
+
+export const matchGetDamage = ({ params, token }) => {
+  const { matchId } = params;
+  return api.get(route + `/get/${matchId}/damage`, {
     headers: { Authorization: "Bearer " + token },
   });
 };

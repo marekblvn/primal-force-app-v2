@@ -9,7 +9,7 @@ import BarChartIcon from "@mui/icons-material/BarChart";
 import ChampionIcon from "../ChampionIcon";
 import Lsi from "../Lsi";
 import useGetCommand from "../../hooks/useGetCommand";
-import { damage } from "../../services/primal-force-api/chart-service";
+import { matchGetDamage } from "../../services/primal-force-api/match-service";
 import { useLsi } from "../../contexts";
 import useWindowDimensions from "../../hooks/useWindowDimensions";
 import {
@@ -26,9 +26,9 @@ import ChampionIconTick from "./ChampionIconTick";
 
 const DamageBarChart = ({ matchId }) => {
   const { data, error, loading } = useGetCommand({
-    command: damage,
+    command: matchGetDamage,
     skipInitial: false,
-    initialParams: { id: matchId },
+    initialParams: { matchId },
   });
   const theme = useTheme();
   const { language } = useLsi();
